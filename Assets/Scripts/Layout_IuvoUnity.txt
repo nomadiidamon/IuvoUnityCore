@@ -1,0 +1,329 @@
+// UnityHelperLibrary Folder and Namespace Layout Document
+
+STATUS {
+
+// [Release] Has been fully implemented and tested across projects
+// [Implemented] Has been lightly tested in projects
+// [Experimental] Has been written but not tested
+// [TODO]	In the process of being written
+
+}
+
+// Anything with the "Iuvo" prefix, is a special type unique to this namespace. Iuvo means "I help".
+// Anything with the "_" prefix is a Category of code within the namespace. "_" stands for "with" or "and".
+// Example 1: IuvoUnity.AI = "I help with AI."
+// Example 2: IuvoUnity._BaseClasses._ECS = "I help with Base Classes and with ECS."
+
+namespace UnityHelperLibrary
+{
+
+	namespace _Camera 
+	{
+		// [TODO]: Arc in
+		// [TODO]: Arc out
+		// [TODO]: camera collision handler
+		// [TODO]: camera follow
+		// [TODO]: camera shake
+		// [TODO]: Dynamic Zoom
+	}
+
+	namespace _Collider 
+	{
+		// [TODO]: Will house Collider related objects and helpers
+	}
+
+	namespace _Color 
+	{
+		// [TODO]: Will house Color related objects and helpers
+	}
+
+
+	namespace _Debug 
+	{
+		// [TODO]: DrawDebugBox(Vector3 center, Vector3 size);
+	}
+
+	namespace _ECS 
+	{
+		// [Experimental]: DescriptionComponent : IuvoComponentBase
+		// [Experimental]: EasyRotationComponent : IuvoComponentBase
+		// [Experimental]: EasyTransformComponent : IuvoComponentBase
+		// [Experimental]: IDNumberComponent : IuvoComponentBase
+		// [Experimental]: InteractionComponent : IuvoComponentBase
+		// [Experimental]: IuvoRegistryID : IDNumberComponent
+		// [Experimental]: IuvoTimerID : IDNumberComponent
+		// [Experimental]: IuvoWorldID : IuvoComponentBase
+		// [Experimental]: MagnetizeComponent : IuvoComponentBase
+		// [Experimental]: NameComponent : IuvoComponentBase
+		// [Experimental]: Name_DescriptionComponent : IuvoComponentBase
+		// [Experimental]: PatrolRouteComponent : IuvoComponentBase
+		// [Experimental]: PositionComponent : IuvoComponentBase
+		// [Experimental]: RotationComponent : IuvoComponentBase
+		// [Experimental]: ScaleComponent : IuvoComponentBase
+		// [Experimental]: TagComponent : IuvoComponentBase
+		// [Experimental]: TargetComponent : IuvoComponentBase
+		// [Experimental]: TransformComponent : IuvoComponentBase
+		// [Experimental]: VelocityComponent : IuvoComponentBase
+
+		/// _RPG
+		// [Experimental]: AccessorySlotComponent : EquipmentTagComponent
+		// [Experimental]: AccuracyComponent : RPGComponent		
+		// [Experimental]: ArmorSlotComponent : EquipmentTagComponent
+		// [Experimental]: CanBeTwoHandedComponent : EquipmentTagComponent
+		// [Experimental]: CurrencyComponent : RPGComponent
+		// [Experimental]: CurrencyMultiplierComponent : ValueMultiplier
+		// [Experimental]: CurrencyValueComponent : RPGComponent
+		// [Experimental]: DamageMultiplierComponent : ValueMultiplier
+		// [Experimental]: DamageTypeComponent : RPGComponent
+		// [Experimental]: DensityValueComponent : RPGComponent
+		// [Experimental]: DurabilityComponent : RPGComponent
+		// [Experimental]: EquipmentTagComponent : ItemComponent
+		// [Experimental]: ExperienceGaugeComponent : RPGComponent
+		// [Experimental]: ExperienceGiftComponent : RPGComponent
+		// [Experimental]: ExperienceLevelMultiplier : ValueMultiplier
+		// [Experimental]: ExperienceValueComponent : RPGComponent
+		// [Experimental]: Health : StatComponent
+		// [Experimental]: ItemComponent : RPGComponent
+		// [Experimental]: ItemTypeComponent : RPGComponent
+		// [Experimental]: LeftHandComponent : WeaponSlotComponent
+		// [Experimental]: LevelValueComponent : RPGComponent
+		// [Experimental]: RangeComponent : RPGComponent
+		// [Experimental]: RechargeMaxPercentage : ValueMultiplier
+		// [Experimental]: RechargeMaxValue : RPGComponent
+		// [Experimental]: RechargeRateComponent : RPGComponent
+		// [Experimental]: RightHandComponent : WeaponSlotComponent
+		// [Experimental]: RPGComponent : IuvoComponentBase
+		// [Experimental]: ShieldSlotComponent : CanBeTwoHandedComponent
+		// [Experimental]: Stamina : StatComponent
+		// [Experimental]: StaminaCost
+		// [Experimental]: StatBonusComponent : RPGComponent
+		// [Experimental]: StatBonusMultiplierComponent : ValueMultiplier
+		// [Experimental]: StatComponent : LevelValueComponent
+		// [Experimental]: StunComponent : RPGComponent
+		// [Experimental]: ValueMultiplier : RPGComponent
+		// [Experimental]: WeaponSlotComponent : CanBeTwoHandedComponent
+		// [Experimental]: WeightValueComponent : RPGComponent
+	}
+
+	namespace _Editor 
+	{
+		namespace _EditorTools 
+		{
+			// [TODO]: Will house Editor tools
+		}
+		namespace _EditorUtilities 
+		{
+			// [TODO]: property drawers
+			// [TODO]: custom class/object serializtion/inspection
+		}
+	}
+
+	namespace _Events 
+	{
+		// [TODO]: Will house events
+	}
+
+	namespace _ExtensionMethods 
+	{
+	
+		// [Experimental]:	
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		
+		/// GameObject Extensions
+			// [Experimental]:
+			// [Experimental]:
+			// [Experimental]:
+			// [Experimental]:
+		
+		/// Generic Extensions
+			// [Experimental]:
+			// [Experimental]:
+			// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		
+		/// Light Extensions
+			// [Experimental]:
+			// [Experimental]:
+			
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		
+		
+		/// RigidbodyExtensions
+			// [Experimental]:
+			// [Experimental]:
+			// [Experimental]:
+		
+			
+		/// TransformExtensions
+			// [Experimental]:
+			// [Experimental]:
+			// [Experimental]:
+		
+		
+		/// Vector3 Extensions
+			// [Experimental]:
+			// [Experimental]:
+	}
+
+	namespace _Input
+	{
+		// [TODO]: Button hold, tap, double-tap abstraction
+		// [TODO]: Input rebinding helper
+		namespace _Controllers 
+		{
+			// [TODO]: Will house Controllers
+		}
+	}
+
+	namespace _Interfaces 
+	{
+		// [TODO]: IAwake
+		// [TODO]: IConfigurable
+		// [TODO]: IInitialize
+		// [TODO]: INotifiable
+		// [TODO]: INotify
+		// [TODO]: INotifyOnChange
+		// [TODO]: IReconfigure
+		// [TODO]: IRegenerate
+		// [TODO]: ISavable
+		// [TODO]: IUpdate
+		// [TODO]: IFixedUpdate	
+		// [TODO]: IDebelitate
+		// [Testing]: IConfigure
+	}
+
+	namespace _Math 
+	{
+		// [TODO]: Will house Math related objects and helpers
+	}
+
+	namespace _Networking 
+	{
+		// [TODO]: Will house Networking related objects and helpers
+	}
+
+	namespace _OverrideClasses 
+	{
+		// [TODO]: Will house Math related objects and helpers
+	}
+
+	namespace _Physics 
+	{
+		// [TODO]: Physics Overlap Helper
+		// [TODO]: Raycast All Sorted By Distance
+		// [TODO]: Explosive Force Distributor
+		// [TODO]: Step height check
+		// [TODO]: easily influential gravity (world gravity and constant weight scale)
+		// [TODO]: gravity flipper (takes a vector as new world up)
+		// [TODO]: magnetic force (attract and repel)
+		// [TODO]: arc projectile (throw strength and weight based)
+		// [TODO]: 
+	}
+
+	namespace _ProceduralGeneration 
+	{
+		// [TODO]: cave
+		// [TODO]: heightmap
+		// [TODO]: object grid with effect
+		// [TODO]: object grid with perlin noise
+		// [TODO]: random template
+		// [TODO]: world
+		// [Experimental]: building / structure (made of smaller pieces for modular behavior)
+		// [Experimental]: dungeon
+		// [Experimental]: multi-layerd object grid
+		// [Experimental]: object grid
+	}
+
+	namespace _ProgrammingPatterns 
+	{
+		// [TODO]: Will house ProgrammingPattern related objects and helpers
+	}
+
+	namespace _RPG 
+	{
+		// [TODO]: Dialogue system
+	}
+
+	namespace _Saving 
+	{
+		// [TODO]: auto save trigger
+		// [TODO]: binary saving
+		// [TODO]: json saving
+		// [TODO]: preference saves
+		// [TODO]: profile saves
+	}
+
+	namespace _Scene 
+	{
+		// [TODO]: Scene transition
+		// [TODO]: async scene loader
+		// [TODO]: loading scene
+		// [TODO]: scene progress and configuration are savable
+	}
+
+	namespace _ScriptableObjects 
+	{
+		// [TODO]: Will house ScriptableObject related objects and helpers	
+	}
+
+	namespace _Singletons 
+	{
+		// [TODO]: Will house Singleton related objects and helpers
+	}
+
+	namespace _StateMachine 
+	{
+		// [TODO]: Will house State Machine related objects and helpers
+	}
+
+	namespace _Testing 
+	{
+		// [TODO]: Will house Testing related objects and helpers
+	}
+
+	namespace _Time 
+	{
+		// [TODO]: Will house Time related objects and helpers
+	}
+
+	namespace _UI 
+	{
+		// [TODO]: Locallized text
+		// [TODO]: Tooltip system 
+		// [TODO]: fade transitions
+		// [TODO]: hud
+		// [TODO]: hud layout
+		// [TODO]: hud preferences
+		// [TODO]: save preferences
+	}
+
+	namespace _Utility
+	{
+		// [TODO]: IsInLayerMask(GameObject obj, LayerMask mask);
+		// [TODO]: Localization Manager
+		// [TODO]: object life time manager
+		// [TODO]: object life time tracker
+
+		namespace _UtilityInterfaces 
+		{
+			// [TODO]: Will house Utility interfaces
+		}
+	}
+
+
+}
