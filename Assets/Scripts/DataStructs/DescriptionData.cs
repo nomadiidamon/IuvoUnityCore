@@ -7,13 +7,13 @@ namespace IuvoUnity
     namespace DataStructs
     {
         [System.Serializable]
-        public class DataDescription : IDataStructBase
+        public class DescriptionData : IDataStructBase
         {
             public string _description;
         }
 
         [System.Serializable]
-        public class DataLongDescription : IDataStructBase
+        public class LongDescriptionData : IDataStructBase
         {
             public List<string> _sentences;
         }

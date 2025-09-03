@@ -10,7 +10,7 @@ namespace IuvoUnity
         {
             private string className = "NewBaseConfig";
 
-            [MenuItem("Assets/Create/IuvoUnity/Derived BaseConfig Script", false, 82)]
+            [MenuItem("Assets/Create/IuvoUnity/ScriptTemplates/Derived BaseConfig Script", false, 82)]
             public static void ShowWindow()
             {
                 GetWindow<BaseConfigScriptCreator>("Create Derived BaseConfig");
@@ -53,12 +53,11 @@ namespace IuvoUnity
 
                 string template =
     $@"using UnityEngine;
-using IuvoUnity._BaseClasses;
-using IuvoUnity._Interfaces;
+using IuvoUnity.Configurations;
 
 namespace IuvoUnity {{
 
-namespace _StateMachine {{
+namespace StateMachine {{
 [CreateAssetMenu(fileName = ""{name}"", menuName = ""IuvoUnity/Configs/{name}"", order = 2)]
 public class {name} : BaseConfig
 {{

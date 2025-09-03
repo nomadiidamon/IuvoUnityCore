@@ -10,7 +10,7 @@ namespace IuvoUnity
         {
             private string className = "NewGenericState";
 
-            [MenuItem("Assets/Create/IuvoUnity/Derived GenericState Script", false, 81)]
+            [MenuItem("Assets/Create/IuvoUnity/ScriptTemplates/Derived GenericState Script", false, 81)]
             public static void ShowWindow()
             {
                 GetWindow<GenericStateScriptCreator>("Create Derived State");
@@ -46,20 +46,20 @@ namespace IuvoUnity
                 }
 
                 string template =
-    $@"using IuvoUnity._StateMachine;
+    $@"using IuvoUnity.StateMachine;
 using UnityEngine;
 
 
 namespace IuvoUnity{{
 
-_StateMachine {{
+namespace StateMachine {{
 
 [CreateAssetMenu(fileName = ""{name}"", menuName = ""IuvoUnity/StateMachine/{name}"", order = 2)]
 public class {name} : GenericState
 {{
     // Optional: initialize stateName and updateMode
-    public string stateName = ""{name}"";
-    public UpdateMode updateMode = UpdateMode.None;
+    public new string stateName = ""{name}"";
+    public new UpdateMode updateMode = UpdateMode.None;
 
     // Override condition checks if needed
     public override bool InterruptConditionsMet(GenericStateMachine stateMachine)

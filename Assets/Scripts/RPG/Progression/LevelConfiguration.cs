@@ -8,7 +8,7 @@ namespace IuvoUnity
     namespace Configurations
     {
 
-        [CreateAssetMenu(fileName = "New Level Configuration", menuName = "Iuvo/RPG/Level Configuration")]
+        [CreateAssetMenu(fileName = "New Level Configuration", menuName = "IuvoUnity/RPG/Level Configuration")]
         public class LevelConfiguration : BaseConfig
         {
             [SerializeField]

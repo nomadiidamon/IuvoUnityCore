@@ -13,7 +13,7 @@ namespace IuvoUnity
                 public class ItemComponent : RPGComponentBase
                 {
                     public NameData Name;
-                    public DataDescription Description;
+                    public DescriptionData Description;
                     public CurrencyComponent Currency;
                     public ItemTypeComponent ItemType;
                 }
@@ -26,7 +26,7 @@ namespace IuvoUnity
 
                 public class CurrencyComponent : RPGComponentBase
                 {
-                    public DataDescription _bonusFromSpeech;
+                    public DescriptionData _bonusFromSpeech;
                     public CurrencyValueComponent _currencyValue;
                     public CurrencyMultiplierComponent _currencyMultiplier;
                 }

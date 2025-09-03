@@ -9,8 +9,8 @@ namespace IuvoUnity
         public struct InteractableData : IDataStructBase
         {
             public NameData displayName;
-            public DataDescription tooltip;
-            public bool isEnabled;
+            public DescriptionData tooltip;
+            public bool isInteractable;
         }
     }
 }

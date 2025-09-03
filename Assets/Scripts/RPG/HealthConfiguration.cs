@@ -7,7 +7,7 @@ namespace IuvoUnity
 {
     namespace Configurations
     {
-        [CreateAssetMenu(fileName = "New Health Configuration", menuName = "Iuvo/RPG/Health Configuration")]
+        [CreateAssetMenu(fileName = "New Health Configuration", menuName = "IuvoUnity/RPG/Health Configuration")]
         public class HealthConfiguration : BaseConfig
         {
             [SerializeField]

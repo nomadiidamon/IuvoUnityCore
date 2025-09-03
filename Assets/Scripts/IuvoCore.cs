@@ -8,7 +8,7 @@ namespace IuvoUnity
         using IuvoUnity.DataStructs;
         using IuvoUnity.Extensions;
         using IuvoUnity.Debug;
-        using IuvoUnity.Editor;
+//        using IuvoUnity.Editor;
 
         public static class IuvoCore
         {
