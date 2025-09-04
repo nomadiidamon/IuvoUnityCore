@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace IuvoUnity
+﻿namespace IuvoUnity
 {
     namespace Interfaces
     {

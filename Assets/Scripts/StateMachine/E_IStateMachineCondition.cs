@@ -1,5 +1,4 @@
-﻿using IuvoUnity;
-using IuvoUnity._BaseClasses;
+﻿using IuvoUnity.BaseClasses;
 
 namespace IuvoUnity
 {
@@ -11,8 +10,6 @@ namespace IuvoUnity
             bool ContinueConditionsMet(GenericStateMachine stateMachine);
             bool ExitConditionsMet(GenericStateMachine stateMachine);
             bool InterruptConditionsMet(GenericStateMachine stateMachine);
-
-
         }
 	}
 }

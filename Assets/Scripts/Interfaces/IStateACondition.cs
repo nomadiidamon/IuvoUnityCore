@@ -1,14 +1,10 @@
-﻿using System;
-
-namespace IuvoUnity
+﻿namespace IuvoUnity
 {
     namespace Interfaces
     {
-            public interface IStateACondition : IBooleanCondition
-            {
-                bool IsConditionMet();
-            }
-
-        
+        public interface IStateACondition : IBooleanCondition
+        {
+            bool IsConditionMet();
+        }
     }
 }

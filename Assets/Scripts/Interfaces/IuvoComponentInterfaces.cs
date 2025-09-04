@@ -1,10 +1,9 @@
-﻿using IuvoUnity._BaseClasses;
+﻿using IuvoUnity.BaseClasses;
 using IuvoUnity._BaseClasses._ECS;
 using System;
 
 namespace IuvoUnity
 {
-
     namespace Interfaces
     {
         public interface ICreateEntity : IuvoInterfaceBase
