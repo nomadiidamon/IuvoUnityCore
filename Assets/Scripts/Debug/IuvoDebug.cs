@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEditor.Animations;
 using IuvoUnity._Physics;
 using IuvoUnity.Core;
+using IuvoUnity.Constants;
 
 namespace IuvoUnity
 {
@@ -121,13 +122,34 @@ namespace IuvoUnity
                 }
             }
 
-            private static string FormatMessage(string level, string message, string memberName, string filePath, int lineNumber)
+            private static string FormatMessage(string level, string message, string memberName, string filePath, int lineNumber, bool richTxtMsg = false)
             {
-                string time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
                 string fileName = Path.GetFileName(filePath);
-                return $"[{time}] [{level}] [{memberName} in {fileName}:{lineNumber}] {message}";
+
+                string color = level == "[ERROR]" ? "orange" :
+                               level == "[WARNING]" ? "yellow" :
+                               "green";
+
+                string richLevel = $"<color={color}>{level}</color>";
+                
+
+
+                string richMessage = $"<color={color}>{message}</color>";
+                if (level == "[WARNING]") richMessage = $"<color={color}><i>{message}</i></color>";
+                else if (level == "[ERROR]") richMessage = $"<color={color}><b>{message}</b></color>";
+
+                string richLocation = $"[{memberName} in {fileName}:{lineNumber}]";
+                if (level == "[ERROR]") richLocation = $"<b>[{memberName} in {fileName}:{lineNumber}]</b>";
+
+                if (!richTxtMsg)
+                {
+                    richMessage = message;
+                    richLocation = $"[{memberName} in {fileName}:{lineNumber}]";
+                }
+                return $"{richLevel} {richMessage} {richLocation}";
             }
 
+            #region Specific Debuggers
             public static void DebugTransform(Transform toDebug, [CallerMemberName] string memberName = "",
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
@@ -144,81 +166,38 @@ namespace IuvoUnity
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
                 if (!EnabledLevels.Contains(ValidationLevel.Debug)) return;
-                DebugLog($"Position: {position:F3}", memberName, filePath, lineNumber);
+                DebugLog($"Position: {position:F3}", false, memberName, filePath, lineNumber);
             }
 
             public static void DebugRotation(Quaternion rotation, [CallerMemberName] string memberName = "",
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
                 if (!EnabledLevels.Contains(ValidationLevel.Debug)) return;
-                DebugLog($"Quaternion: {rotation.x:F3}, {rotation.y:F3}, {rotation.z:F3}, {rotation.w:F3}", memberName, filePath, lineNumber);
+                DebugLog($"Quaternion: {rotation.x:F3}, {rotation.y:F3}, {rotation.z:F3}, {rotation.w:F3}", false, memberName, filePath, lineNumber);
             }
 
             public static void DebugEulerAngles(Vector3 eulerAngles, [CallerMemberName] string memberName = "",
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
                 if (!EnabledLevels.Contains(ValidationLevel.Debug)) return;
-                DebugLog($"Angles: {eulerAngles:F3}", memberName, filePath, lineNumber);
+                DebugLog($"Angles: {eulerAngles:F3}", false, memberName, filePath, lineNumber);
             }
 
             public static void DebugScale(Vector3 scale, [CallerMemberName] string memberName = "",
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
                 if (!EnabledLevels.Contains(ValidationLevel.Debug)) return;
-                DebugLog($"Scale: {scale:F3}", memberName, filePath, lineNumber);
+                DebugLog($"Scale: {scale:F3}", false, memberName, filePath, lineNumber);
             }
 
             public static void DebugLossyScale(Vector3 lossyScale, [CallerMemberName] string memberName = "",
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
                 if (!EnabledLevels.Contains(ValidationLevel.Debug)) return;
-                DebugLog($"Lossy Scale: {lossyScale:F3}", memberName, filePath, lineNumber);
+                DebugLog($"Lossy Scale: {lossyScale:F3}", false, memberName, filePath, lineNumber);
             }
 
-
-            public static void DebugAnimator(Animator animator, [CallerMemberName] string memberName = "",
-                [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
-            {
-                if (!EnabledLevels.Contains(ValidationLevel.Debug)) return;
-                if (animator == null)
-                {
-                    DebugLogWarning("Animator is null", memberName, filePath, lineNumber);
-                    return;
-                }
-                DebugLog($"Animator: {animator.name}", memberName, filePath, lineNumber);
-
-
-                string stateName = animator.GetCurrentAnimatorStateInfo(0).fullPathHash.ToString("X8");
-                if (string.IsNullOrEmpty(stateName))
-                {
-                    DebugLogWarning("Animator state name is empty", memberName, filePath, lineNumber);
-                    return;
-                }
-                DebugLog($"Current Animator State: {stateName}", memberName, filePath, lineNumber);
-                string clipName = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
-                if (string.IsNullOrEmpty(clipName))
-                {
-                    DebugLogWarning("Animator clip name is empty", memberName, filePath, lineNumber);
-                    return;
-                }
-                DebugLog($"Current Animator Clip: {clipName}", memberName, filePath, lineNumber);
-
-
-                if (animator.runtimeAnimatorController == null)
-                {
-                    DebugLogWarning("Animator does not have a runtime controller", memberName, filePath, lineNumber);
-                    return;
-                }
-                AnimatorController controller = animator.runtimeAnimatorController as AnimatorController;
-                if (controller == null)
-                {
-                    DebugLogWarning("Animator does not have a valid controller", memberName, filePath, lineNumber);
-                    return;
-                }
-                DebugLog($"Animator Controller: {controller.name}", memberName, filePath, lineNumber);
-            }
-
-            public static bool RaycastDebug(Vector3 origin, Vector3 direction, out RaycastHit hit, float distance = Mathf.Infinity, 
+            public static bool RaycastDebug(Vector3 origin, Vector3 direction, out RaycastHit hit, float distance = Mathf.Infinity,
                 int layerMask = Physics.DefaultRaycastLayers, Color? debugColor = null, [CallerMemberName] string memberName = "",
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
@@ -236,32 +215,80 @@ namespace IuvoUnity
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
                 string version = IuvoCore.GetVersion();
-                DebugLog($"IuvoUnity Version: {version}", memberName, filePath, lineNumber);
+                DebugLog($"IuvoUnity Version: {version}", false, memberName, filePath, lineNumber);
             }
 
-            public static void DebugLog(string message, [CallerMemberName] string memberName = "",
+            public static void DebugIuvoGame(IuvoGame game, [CallerMemberName] string memberName = "",
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
                 if (!EnabledLevels.Contains(ValidationLevel.Debug)) return;
-                string formatted = FormatMessage("DEBUG", message, memberName, filePath, lineNumber);
+                if (game == null)
+                {
+                    DebugLogWarning("IuvoGame instance is null", false, memberName, filePath, lineNumber);
+                    return;
+                }
+                DebugLog($"Game: {game.gameName}", false, memberName, filePath, lineNumber);
+                DebugLog($"Game Version: {game.gameVersion}", false,memberName, filePath, lineNumber);
+                DebugLog($"Developer: {game.developerName}", false, memberName, filePath, lineNumber);
+                DebugLog($"Publisher: {game.publisherName}", false, memberName, filePath, lineNumber);
+                DebugLog($"Screen Resolution: {game.screenWidth}x{game.screenHeight}", false, memberName, filePath, lineNumber);
+
+                {/// will be removed once class fully implements
+                    if (game.systemsStateMachine != null)
+                    {
+                        if (game.systemsStateMachine.currentState != null)
+                        {
+                            DebugLog($"Systems State: {game.systemsStateMachine.currentState.stateName}", false, memberName, filePath, lineNumber);
+                        }
+                        else
+                        {
+                            DebugLogWarning("Systems StateMachine current state is null", false, memberName, filePath, lineNumber);
+                        }
+                    }
+                    else
+                    {
+                        DebugLogWarning("Systems StateMachine is null", false, memberName, filePath, lineNumber);
+                    }
+                }
+
+                // check for the game debug interface
+                IGameDebug gameDebug = game as IGameDebug;
+                if (gameDebug != null)
+                {
+                    gameDebug.LogGameInfo();
+                    gameDebug.LogGameState();
+                }
+                else
+                {
+                    DebugLogWarning("IuvoGame does not implement IGameDebug interface", false, memberName, filePath, lineNumber);
+                }
+            }
+
+            #endregion
+
+            public static void DebugLog(string message, bool richTxtMsg = false, [CallerMemberName] string memberName = "",
+                [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
+            {
+                if (!EnabledLevels.Contains(ValidationLevel.Debug)) return;
+                string formatted = FormatMessage("[DEBUG]", message, memberName, filePath, lineNumber, richTxtMsg);
                 UnityEngine.Debug.Log(formatted);
                 EnqueueLog(formatted);
             }
 
-            public static void DebugLogWarning(string message, [CallerMemberName] string memberName = "",
+            public static void DebugLogWarning(string message, bool richTxtMsg = false, [CallerMemberName] string memberName = "",
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
                 if (!EnabledLevels.Contains(ValidationLevel.Warning)) return;
-                string formatted = FormatMessage("WARNING", message, memberName, filePath, lineNumber);
+                string formatted = FormatMessage("[WARNING]", message, memberName, filePath, lineNumber, richTxtMsg);
                 UnityEngine.Debug.LogWarning(formatted);
                 EnqueueLog(formatted);
             }
 
-            public static void DebugLogError(string message, [CallerMemberName] string memberName = "",
+            public static void DebugLogError(string message, bool richTxtMsg = false, [CallerMemberName] string memberName = "",
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
                 if (!EnabledLevels.Contains(ValidationLevel.Error)) return;
-                string formatted = FormatMessage("ERROR", message, memberName, filePath, lineNumber);
+                string formatted = FormatMessage("[ERROR]", message, memberName, filePath, lineNumber, richTxtMsg);
                 UnityEngine.Debug.LogError(formatted);
                 EnqueueLog(formatted);
             }

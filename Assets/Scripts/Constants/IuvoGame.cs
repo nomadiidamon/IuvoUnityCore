@@ -1,6 +1,6 @@
 ﻿using IuvoUnity.Interfaces;
 using IuvoUnity.StateMachine;
-using System.Collections.Generic;
+using IuvoUnity.Debug;
 using UnityEngine;
 
 
@@ -9,18 +9,26 @@ namespace IuvoUnity
 
     namespace Constants
     {
+        public interface IGameDebug
+        {
+            void LogGameInfo();
+            void LogGameState();
+            void LogGameError(string message);
+            void LogGameWarning(string message);
+        }
+
         [System.Serializable]
-        public class IuvoGame : MonoBehaviour
+        public class IuvoGame : MonoBehaviour, IGameDebug
         {
             ConstTag IuvoTag = new ConstTag(TagType.APPLICATION, ApplicationTag.BASE_APP, GameTag.NONE, UITag.NONE);
 
-            private static int screenWidth = 1920;
-            private static int screenHeight = 1080;
+            public int screenWidth = 1920;
+            public int screenHeight = 1080;
 
-            public static string gameVersion = "0.0.1";
-            public static string gameName = "IuvoGame";
-            public static string developerName = "IuvoUnity";
-            public static string publisherName = "IuvoUnity";
+            public string gameVersion = "0.0.1";
+            public string gameName = "IuvoGame";
+            public string developerName = "Iuvo";
+            public string publisherName = "Iuvo";
 
             [SerializeField] public GenericStateMachine systemsStateMachine;
             //[SerializeField] public GenericStateMachine gameStateMachine;
@@ -43,6 +51,9 @@ namespace IuvoUnity
                 }
             }
 
+            #region Startup and Shutdown
+
+
             public void InitializeGame()
             {
                 // set up game systems
@@ -57,7 +68,6 @@ namespace IuvoUnity
             {
                 // load game resources safely
             }
-
             public void PlaySplashScreen()
             {
 
@@ -71,23 +81,6 @@ namespace IuvoUnity
             {
             }
 
-            public void EnableInput()
-            {
-            }
-
-            public void EnterMenu()
-            {
-            }
-
-            public void UpdateMenu()
-            {
-            }
-
-            public void ExitMenu()
-            {
-            }
-
-
             public void StartGame()
             {
             }
@@ -95,35 +88,6 @@ namespace IuvoUnity
             public void RunGame()
             {
             }
-
-            public void PauseGame()
-            {
-            }
-
-            public void UnpauseGame()
-            {
-            }
-
-            public void DisableInput()
-            {
-            }
-
-            public void ShowDeathMenu()
-            {
-            }
-
-            public void RespawnPlayer()
-            {
-            }
-
-            public void WinGame()
-            {
-            }
-
-            public void ShowCreditsScreen()
-            {
-            }
-
             public void SaveGame()
             {
             }
@@ -136,6 +100,62 @@ namespace IuvoUnity
             {
             }
 
+            #endregion
+
+            #region Input
+
+            public void EnableInput()
+            {
+            }
+            public void DisableInput()
+            {
+            }
+
+            #endregion
+
+            #region Menus
+
+            public void EnterMenu()
+            {
+            }
+
+            public void LoadMainMenu()
+            {
+            }
+
+            public void UpdateMenu()
+            {
+            }
+
+            public void ExitMenu()
+            {
+            }
+
+            public void PauseGame()
+            {
+            }
+
+            public void UnpauseGame()
+            {
+            }
+
+
+            public void ShowDeathMenu()
+            {
+            }
+            public void ShowCreditsScreen()
+            {
+            }
+
+            public void WinGame()
+            {
+            }
+
+            #endregion
+
+
+            #region Level Management
+
             public void LoadLevelSafe()
             {
             }
@@ -144,15 +164,9 @@ namespace IuvoUnity
             {
             }
 
-
-            public void LoadMainMenu()
-            {
-            }
-
             public void ReloadLevel()
             {
             }
-
             public void RestartLevelAtCheckpoint()
             {
             }
@@ -161,7 +175,15 @@ namespace IuvoUnity
             {
             }
 
+            public void RespawnPlayer()
+            {
+            }
 
+            #endregion
+
+
+
+            #region Settings
 
             public void SetScreenResolution(int width, int height)
             {
@@ -174,6 +196,43 @@ namespace IuvoUnity
             {
                 Screen.fullScreenMode = mode;
             }
+
+            #endregion
+
+            #region IGameDebug Implementation
+
+            public void LogGameInfo()
+            {    
+                IuvoDebug.DebugLog($"Game: {gameName}");
+                IuvoDebug.DebugLog($"Game Version: {gameVersion}");
+                IuvoDebug.DebugLog($"Developer: {developerName}");
+                IuvoDebug.DebugLog($"Publisher: {publisherName}");
+                IuvoDebug.DebugLog($"Screen Resolution: {screenWidth}x{screenHeight}");
+            }
+
+            public void LogGameState()
+            {
+                if(systemsStateMachine != null && systemsStateMachine.currentState != null)
+                {
+                    IuvoDebug.DebugLog($"Systems State: {systemsStateMachine.currentState.stateName}");
+                }
+                else
+                {
+                    IuvoDebug.DebugLog("Systems State: None");
+                }
+            }
+
+            public void LogGameError(string message)
+            {
+                throw new System.NotImplementedException();
+            }
+
+            public void LogGameWarning(string message)
+            {
+                throw new System.NotImplementedException();
+            }
+
+            #endregion
         }
     }
 }
