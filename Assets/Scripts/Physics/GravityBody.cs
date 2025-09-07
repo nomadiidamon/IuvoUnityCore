@@ -1,5 +1,5 @@
 ﻿using IuvoUnity._Physics;
-using IuvoUnity.Singletons.Managers;
+using IuvoUnity.Singletons;
 using UnityEngine;
 using IuvoUnity.Extensions;
 
@@ -69,8 +69,8 @@ namespace IuvoUnity
 
                     if (useGlobalGravity && GravityManager.Instance != null)
                     {
-                        currGravDirection = GravityManager.Instance.GetGlobalGravity();
-                        currGravStrength = GravityManager.Instance.GetGlobalStrength();
+                        currGravDirection = GravityManager.Instance.GravityDirection();
+                        currGravStrength = GravityManager.Instance.GravityStrength();
                         groundCheck.directionToCheck = currGravDirection.normalized;
                         groundCheck.checkOrigin = checkPosition;
 
