@@ -96,6 +96,16 @@ namespace IuvoUnity
             }
 
             /// <summary>
+            /// Returns the inverse of the vector (negates all components).
+            /// </summary>
+            /// <param name="vector"></param>
+            /// <returns></returns>
+            public static Vector3 Inverse(this Vector3 vector)
+            {
+                return new Vector3(-vector.x, -vector.y, -vector.z);
+            }
+
+            /// <summary>
             /// Returns a new vector with a modified x component.
             /// </summary>
             public static Vector3 WithX(this Vector3 vector, float x) => new Vector3(x, vector.y, vector.z);

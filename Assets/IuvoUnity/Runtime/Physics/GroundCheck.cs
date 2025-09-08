@@ -63,6 +63,37 @@ namespace IuvoUnity
                 checkOrigin -= velocity * Time.fixedDeltaTime; // reset position
 
             }
+
+            public void ForceGroundCheck()
+            {
+                if (Physics.SphereCast(checkOrigin, radiusToCheck, directionToCheck, out _, distanceToCheck))
+                {
+                    UnityEngine.Debug.DrawRay(checkOrigin, directionToCheck * distanceToCheck, Color.green);
+                    isGrounded = true;
+                }
+                else
+                {
+                    UnityEngine.Debug.DrawRay(checkOrigin, directionToCheck * distanceToCheck, Color.red);
+                    isGrounded = false;
+                }
+                Grounded = isGrounded;
+
+
+                // predict next frame position
+                checkOrigin += velocity * Time.fixedDeltaTime;
+
+                if (Physics.SphereCast(checkOrigin, radiusToCheck, directionToCheck, out _, distanceToCheck))
+                {
+                    isGrounded = true;
+                }
+                else
+                {
+                    isGrounded = false;
+                }
+
+                Grounded = isGrounded;
+                checkOrigin -= velocity * Time.fixedDeltaTime; // reset position
+            }
         }
     }
 }

@@ -28,6 +28,7 @@ namespace IuvoUnity
 
             public GroundCheck groundCheck;
             public bool onlyApplyGravityWhenAirborne = true;
+            public bool Grounded;
 
             // Manual velocity tracking
             protected Vector3 velocity = Vector3.zero;
@@ -47,13 +48,17 @@ namespace IuvoUnity
                 if (onlyApplyGravityWhenAirborne && groundCheck != null && groundCheck.Grounded)
                 {
                     velocity = Vector3.zero; // reset velocity when grounded
+                    Grounded = true;
                     return;
                 }
 
                 Vector3 gravity = CalculateGravity();
                 ApplyGravity(gravity);
                 AlignToGravity(gravity);
-
+                if (groundCheck != null)
+                {
+                    Grounded = groundCheck.Grounded;
+                }
             }
 
             protected virtual Vector3 CalculateGravity()
@@ -82,7 +87,7 @@ namespace IuvoUnity
                 currGravDirection = customDirection.normalized;
                 currGravStrength = customStrength;
                 groundCheck.SetDirectionToCheck(currGravDirection.normalized);
-
+                
                 return customDirection.normalized * customStrength;
             }
 
@@ -96,7 +101,7 @@ namespace IuvoUnity
             {
                 Vector3 gravityDirection = -gravity.normalized;
                 Quaternion targetRotation = Quaternion.FromToRotation(transform.up, gravityDirection) * transform.rotation;
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 5f);
+                //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 5f);
             }
 
             public void SetLocalGravity(Vector3 direction, float strength)
@@ -107,9 +112,7 @@ namespace IuvoUnity
             }
 
             public void EnableGlobalGravity() => useGlobalGravity = true;
-            public void DisableGravity() => useGravity = false;
-            public void EnableGravity() => useGravity = true;
-
+            public void ToggleGravity(bool state) => useGravity = state;
             public void EnterGravityZone(GravityZone zone) => gravZone = zone;
             public void ExitGravityZone() => gravZone = null;
 
