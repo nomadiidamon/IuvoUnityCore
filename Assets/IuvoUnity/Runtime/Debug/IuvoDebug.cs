@@ -3,8 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEditor.Animations;
-using IuvoUnity._Physics;
+using IuvoUnity.IuvoPhysics;
 using IuvoUnity.Core;
 using IuvoUnity.Constants;
 

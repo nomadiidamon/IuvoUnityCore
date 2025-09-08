@@ -193,21 +193,21 @@ namespace IuvoUnity
                 return collider != null && otherCollider != null && collider.bounds.Intersects(otherCollider.bounds);
             }
 
-            /// <summary>
-            /// Gets or adds the specified component to the GameObject.
-            /// </summary>
-            /// <typeparam name="T">The type of component to get or add.</typeparam>
-            /// <param name="gameObject">The GameObject to get or add the component to.</param>
-            /// <returns>The component of type T.</returns>
-            public static T GetOrAddComponent<T>(this GameObject gameObject) where T : Component
-            {
-                T component = gameObject.GetComponent<T>();
-                if (component == null)
-                {
-                    component = gameObject.AddComponent<T>();
-                }
-                return component;
-            }
+            ///// <summary>
+            ///// Gets or adds the specified component to the GameObject.
+            ///// </summary>
+            ///// <typeparam name="T">The type of component to get or add.</typeparam>
+            ///// <param name="gameObject">The GameObject to get or add the component to.</param>
+            ///// <returns>The component of type T.</returns>
+            //public static T GetOrAddComponent<T>(this GameObject gameObject) where T : Component
+            //{
+            //    T component = gameObject.GetComponent<T>();
+            //    if (component == null)
+            //    {
+            //        component = gameObject.AddComponent<T>();
+            //    }
+            //    return component;
+            //}
 
 
             /// <summary>

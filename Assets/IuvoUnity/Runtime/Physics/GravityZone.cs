@@ -1,9 +1,9 @@
-﻿using IuvoUnity._Input._Controllers;
+﻿using IuvoUnity.Controllers;
 using UnityEngine;
 
 namespace IuvoUnity
 {
-    namespace _Physics
+    namespace IuvoPhysics
     {
         [System.Serializable]
         [RequireComponent(typeof(BoxCollider))]

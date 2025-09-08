@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace IuvoUnity
 {
-    namespace _Physics
+    namespace IuvoPhysics
     {
         public static class PhysicsHelpers
         {
