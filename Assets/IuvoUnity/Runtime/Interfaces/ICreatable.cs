@@ -14,11 +14,11 @@ namespace IuvoUnity
         }
 
 
-        public interface IDestroyer<T> : IuvoInterfaceBase where T : IDesctructible
+        public interface IDestroyer<T> : IuvoInterfaceBase where T : IDestructible
         {
             public abstract void Destroy(T destructible);
         }
-        public interface IDesctructible : IuvoInterfaceBase
+        public interface IDestructible : IuvoInterfaceBase
         {
             public abstract void OnDestroy();
         }

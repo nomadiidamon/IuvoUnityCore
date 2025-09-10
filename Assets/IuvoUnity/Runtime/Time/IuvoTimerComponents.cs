@@ -14,7 +14,7 @@ namespace IuvoUnity
             }
 
 #nullable enable
-            public abstract class TimerConfiguration : IuvoConfigurationBase
+            public abstract class ECSTimerConfiguration : IuvoConfigurationBase
             {
                 // All possible IuvoTimerComponets shuld be nullable variables here
                 protected StartOfLife? _startOfLife;
@@ -28,12 +28,12 @@ namespace IuvoUnity
                 protected BasedOnTimeScale? _basedOnTimeScale;
                 protected TimerActivityMode? _timerActivityMode;
 
-                public TimerConfiguration()
+                public ECSTimerConfiguration()
                 {
                     // assign variables
                 }
 
-                public TimerConfiguration(StartOfLife? _startOfLife, EndOfLife? _endOfLife,
+                public ECSTimerConfiguration(StartOfLife? _startOfLife, EndOfLife? _endOfLife,
                 StartOfTime? _startOfTime, EndOfTime? _endOfTime, OnEndOfTime? _onEndOfTime,
                 Pause? _pause, Running? _running, Finished? _finished, BasedOnTimeScale? _basedOnTimeScale,
                 TimerActivityMode? _timerActivityMode)
@@ -112,7 +112,7 @@ namespace IuvoUnity
                 }
                 public class CountLogic : TimerComponent
                 {
-                    public Count_Logic _countLogic;
+                    public Tick_Mode _countLogic;
                 }
 
             }
