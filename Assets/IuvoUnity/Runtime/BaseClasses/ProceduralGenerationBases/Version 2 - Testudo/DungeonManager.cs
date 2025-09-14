@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using IuvoUnity._Extensions;
+using IuvoUnity.Extensions;
 
 namespace IuvoUnity
 {

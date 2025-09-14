@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace IuvoUnity
 {
-    namespace _Extensions
+    namespace Extensions
     {
         /// <summary>
         /// Extension methods for SkinnedMeshRenderer to simplify material and bounds manipulation.

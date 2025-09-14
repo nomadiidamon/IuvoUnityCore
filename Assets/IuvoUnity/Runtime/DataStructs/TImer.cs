@@ -11,7 +11,7 @@ namespace IuvoUnity
     namespace DataStructs
     {
         [System.Serializable]
-        public class IncrementTimer : IDataStructBase
+        public struct IncrementTimer : IDataStructBase
         {
             public float duration;
             public float elapsed;
@@ -22,15 +22,15 @@ namespace IuvoUnity
             public FlexibleEvent OnFinished;
             public bool onFinishedInvoked;
 
-            public IncrementTimer()
-            {
-                duration = 1.0f;
-                elapsed = 0.0f;
-                HasStarted = false;
-                IsPaused = false;
-                onFinishedInvoked = false;
-                OnFinished = new FlexibleEvent();
-            }
+            //public IncrementTimer()
+            //{
+            //    duration = 1.0f;
+            //    elapsed = 0.0f;
+            //    HasStarted = false;
+            //    IsPaused = false;
+            //    onFinishedInvoked = false;
+            //    OnFinished = new FlexibleEvent();
+            //}
             public IncrementTimer(float timerDuration)
             {
                 if (timerDuration <= 0)
@@ -95,7 +95,7 @@ namespace IuvoUnity
 
 
         [System.Serializable]
-        public class DecrementTimer : IDataStructBase
+        public struct DecrementTimer : IDataStructBase
         {
             public float duration;
             public float remainingTime;
@@ -106,15 +106,15 @@ namespace IuvoUnity
             public FlexibleEvent OnFinished;
             public bool onFinishedInvoked;
 
-            public DecrementTimer()
-            {
-                duration = 1.0f;
-                remainingTime = 1.0f;
-                HasStarted = false;
-                IsPaused = false;
-                onFinishedInvoked = false;
-                OnFinished = new FlexibleEvent();
-            }
+            //public DecrementTimer()
+            //{
+            //    duration = 1.0f;
+            //    remainingTime = 1.0f;
+            //    HasStarted = false;
+            //    IsPaused = false;
+            //    onFinishedInvoked = false;
+            //    OnFinished = new FlexibleEvent();
+            //}
             public DecrementTimer(float timerDuration)
             {
                 if (timerDuration <= 0)
@@ -176,23 +176,23 @@ namespace IuvoUnity
         }
 
         [System.Serializable]
-        public class StopwatchTimer : IDataStructBase
+        public struct StopwatchTimer : IDataStructBase
         {
             public float elapsed;
-            public List<float> splitLaps = new List<float>();
-            public List<float> absoluteLaps = new List<float>();
+            public List<float> splitLaps;//= new List<float>();
+            public List<float> absoluteLaps;// = new List<float>();
             public bool HasStarted;
             public bool IsPaused;
             public bool IsRunning => HasStarted && !IsPaused;
             public FlexibleEvent OnTick;
 
-            public StopwatchTimer()
-            {
-                elapsed = 0.0f;
-                HasStarted = false;
-                IsPaused = false;
-                OnTick = new FlexibleEvent();
-            }
+            //public StopwatchTimer()
+            //{
+            //    elapsed = 0.0f;
+            //    HasStarted = false;
+            //    IsPaused = false;
+            //    OnTick = new FlexibleEvent();
+            //}
             public void Dispose()
             {
                 OnTick.RemoveAllFlexibleEventListeners();
@@ -237,6 +237,10 @@ namespace IuvoUnity
             // adds the time since the last split lap to the split laps list
             public void AddSplitLap()
             {
+                if (splitLaps == null)
+                {
+                    splitLaps = new List<float>();
+                }
                 float val = elapsed;
                 if (splitLaps.Count > 0)
                 {
@@ -247,6 +251,10 @@ namespace IuvoUnity
             // only adds the total elapsed time to the absolute laps list
             public void AddAbsoluteLap()
             {
+                if (absoluteLaps == null)
+                {
+                    absoluteLaps = new List<float>();
+                }
                 absoluteLaps.Add(elapsed);
             }
             public override string ToString()
@@ -260,7 +268,7 @@ namespace IuvoUnity
         /// TODO: Reasses flow, checks, and presets
         /// </summary>
         [System.Serializable]
-        public class LoopingTimer
+        public struct LoopingTimer
         {
             public IncrementTimer incrementTimer;
             public DecrementTimer decrementTimer;
@@ -268,12 +276,12 @@ namespace IuvoUnity
             public bool IsRunning => incrementTimer.IsRunning || decrementTimer.IsRunning;
             public bool IsGoingUp => incrementTimer.IsRunning;
 
-            public LoopingTimer()
-            {
-                incrementTimer = new IncrementTimer { duration = 1.0f, OnFinished = new FlexibleEvent() };
-                decrementTimer = new DecrementTimer { duration = 1.0f, remainingTime = 1.0f, OnFinished = new FlexibleEvent() };
-                IsLooping = false;
-            }
+            //public LoopingTimer()
+            //{
+            //    incrementTimer = new IncrementTimer { duration = 1.0f, OnFinished = new FlexibleEvent() };
+            //    decrementTimer = new DecrementTimer { duration = 1.0f, remainingTime = 1.0f, OnFinished = new FlexibleEvent() };
+            //    IsLooping = false;
+            //}
             public LoopingTimer(IncrementTimer incrementTimer, DecrementTimer decrementTimer, bool isLooping)
             {
                 this.incrementTimer = incrementTimer;
@@ -618,9 +626,9 @@ namespace IuvoUnity
                 if (HasBeenInitialized) return;
                 HasBeenInitialized = true;
 
-                stopwatchTimer = new StopwatchTimer { OnTick = new FlexibleEvent() };
-                countdownTimer = new DecrementTimer { duration = defaultDuration, remainingTime = defaultDuration, OnFinished = new FlexibleEvent() };
-                countUpTimer = new IncrementTimer { duration = defaultDuration, OnFinished = new FlexibleEvent() };
+                stopwatchTimer = new StopwatchTimer();
+                countdownTimer = new DecrementTimer(defaultDuration);
+                countUpTimer = new IncrementTimer (defaultDuration);
 
                 ResetAll();
             }
@@ -682,7 +690,6 @@ namespace IuvoUnity
 
 
 
-        [System.Serializable]
         public class Timer : MonoBehaviour, IDataStructBase, ICreatable, IDestructible, IConfigurable, IReconfigurable
         {
             public Timer_Activity_Mode activityMode;

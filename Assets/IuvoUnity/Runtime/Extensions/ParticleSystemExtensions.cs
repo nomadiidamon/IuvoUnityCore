@@ -2,7 +2,7 @@
 
 namespace IuvoUnity
 {
-    namespace _Extensions
+    namespace Extensions
     {
         /// <summary>
         /// Extension methods for Unity's ParticleSystem component to simplify configuration.

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace IuvoUnity
 {
-    namespace _ExtensionMethods
+    namespace Extensions
     {
         public static class CameraExtensions
         {

@@ -4,7 +4,6 @@ using IuvoUnity.IuvoPhysics;
 using IuvoUnity.DataStructs;
 using IuvoUnity.Extensions;
 using IuvoUnity.Debug;
-using IuvoUnity._Extensions;
 
 public class TimerTest : MonoBehaviour
 {

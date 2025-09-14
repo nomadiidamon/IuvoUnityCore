@@ -1,4 +1,4 @@
-﻿using IuvoUnity._Extensions;
+﻿using IuvoUnity.Extensions;
 using UnityEngine;
 
 namespace IuvoUnity

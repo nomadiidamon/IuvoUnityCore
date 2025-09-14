@@ -571,7 +571,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1366492612}
   - component: {fileID: 1366492611}
-  - component: {fileID: 1366492613}
   m_Layer: 0
   m_Name: IuvoGame
   m_TagString: Untagged
@@ -615,44 +614,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1366492613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1366492610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3339fa65ad5f3a4699cb1eb53e72d90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IuvoUnity.DataStructs.Timer
-  activityMode: 0
-  tickMode: 0
-  timer:
-    stopwatchTimer:
-      elapsed: 0
-      laps: []
-      OnTick:
-        unityEvent:
-          m_PersistentCalls:
-            m_Calls: []
-    countdownTimer:
-      duration: 0
-      remainingTime: 0
-      OnFinished:
-        unityEvent:
-          m_PersistentCalls:
-            m_Calls: []
-    countUpTimer:
-      duration: 0
-      elapsed: 0
-      OnFinished:
-        unityEvent:
-          m_PersistentCalls:
-            m_Calls: []
-  HasStarted: 0
-  IsPaused: 0
 --- !u!1 &1558615275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,7 +1020,6 @@ GameObject:
   - component: {fileID: 1936584256}
   - component: {fileID: 1936584255}
   - component: {fileID: 1936584254}
-  - component: {fileID: 1936584253}
   m_Layer: 0
   m_Name: Value
   m_TagString: Untagged
@@ -1086,44 +1046,6 @@ RectTransform:
   m_AnchoredPosition: {x: 427, y: -8}
   m_SizeDelta: {x: 450, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1936584253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1936584251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3339fa65ad5f3a4699cb1eb53e72d90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IuvoUnity.DataStructs.Timer
-  activityMode: 0
-  tickMode: 0
-  timer:
-    stopwatchTimer:
-      elapsed: 0
-      laps: []
-      OnTick:
-        unityEvent:
-          m_PersistentCalls:
-            m_Calls: []
-    countdownTimer:
-      duration: 0
-      remainingTime: 0
-      OnFinished:
-        unityEvent:
-          m_PersistentCalls:
-            m_Calls: []
-    countUpTimer:
-      duration: 0
-      elapsed: 0
-      OnFinished:
-        unityEvent:
-          m_PersistentCalls:
-            m_Calls: []
-  HasStarted: 0
-  IsPaused: 0
 --- !u!114 &1936584254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1138,7 +1060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   timerConfig: {fileID: 11400000, guid: f5d87ee62c6cea94b8543be98351f26f, type: 2}
   timerText: {fileID: 1936584255}
-  testTimer: {fileID: 1936584253}
+  testTimer: {fileID: 0}
 --- !u!114 &1936584255
 MonoBehaviour:
   m_ObjectHideFlags: 0
