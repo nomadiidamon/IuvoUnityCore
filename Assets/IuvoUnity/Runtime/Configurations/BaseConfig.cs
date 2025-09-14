@@ -7,19 +7,21 @@ namespace IuvoUnity
 {
     namespace Configurations
     {
-        public abstract class BaseConfig : ScriptableObject, IConfigurable
+
+        public abstract class BaseConfig<T> : ScriptableObject, IConfigure<T>, IReconfigure<T> where T : IConfigurable, IReconfigurable 
         {
             public string configName;
 
             #region IConfigurable Interface Implementation
 
-            public bool Configured { get; set; } = false;
-            public bool Reconfigured { get; set; } = false;
+            public virtual void Configure(T configurable)
+            {
 
-            public abstract void Configure(); // IConfigure method
-            public abstract void OnConfigure(); // IConfigure method
-            public abstract void OnReconfigure(); // IReconfigure method
-            public abstract void Reconfigure();// IReconfigure method
+            }
+            public virtual void Reconfigure(T reconfigurable)
+            {
+
+            }
             #endregion
 
             public virtual string GetConfigSerializePath(string actingConfigClass, string objectToSerializeName, string parentConfigClass = "BaseConfig")

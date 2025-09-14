@@ -1,11 +1,15 @@
 using UnityEngine;
+using System.Collections.Generic;
 using IuvoUnity.Configurations;
+using IuvoUnity.DataStructs;
+using IuvoUnity.Debug;
 
 namespace IuvoUnity
 {
 
     namespace IuvoTime
     {
+        [System.Serializable]
         public struct TimerData
         {
             public Timer_Activity_Mode activityMode;
@@ -13,11 +17,11 @@ namespace IuvoUnity
             public float duration;
             public float elapsedTime;
             public float remainingTime;
-
+            public List<float> laps;
         }
 
         [CreateAssetMenu(fileName = "TimerConfiguration", menuName = "IuvoUnity/Configs/TimerConfiguration", order = 2)]
-        public class TimerConfiguration : BaseConfig
+        public class TimerConfiguration : BaseConfig<Timer>
         {
             public TimerData timerData;
 
@@ -25,39 +29,50 @@ namespace IuvoUnity
             {
                 if (string.IsNullOrEmpty(configName))
                 {
-                    configName = "{name}";
+                    configName = "TimerConfiguration";
                 }
-                timerData = new TimerData();
             }
 
-
-            public override void Configure()
+            #region IConfigurable Implementation
+            public override void Configure(Timer configurable)
             {
-                // Implement configuration logic here
-            }
+                if (configurable == null)
+                {
+                    IuvoDebug.DebugLogError("Configurable Timer is null.");
+                    return;
+                }
+                base.Configure(configurable);
+                configurable.ConfigureTimer(timerData);
+                configurable.OnConfigure();
 
-            public override void OnConfigure()
-            {
-                // Implement post-configuration logic here
             }
+            #endregion
 
-            public override void Reconfigure()
+            #region IReconfigurable Implementation
+            public override void Reconfigure(Timer reconfigurable)
             {
-                // Implement reconfiguration logic here
-            }
 
-            public override void OnReconfigure()
-            {
-                // Implement post-reconfiguration logic here
+                if (reconfigurable == null)
+                {
+                    IuvoDebug.DebugLogError("Configurable Timer is null.");
+                    return;
+                }
+                base.Reconfigure(reconfigurable);
+                reconfigurable.ConfigureTimer(timerData);
+                reconfigurable.OnReconfigure();
             }
+            #endregion
+
 
             public override void PrintInfo()
             {
                 base.PrintInfo();
-                // Additional info if needed
+                IuvoDebug.DebugLog(string.Concat(" - Activity Mode: ", timerData.activityMode.ToString()));
+                IuvoDebug.DebugLog(string.Concat(" - Tick Method: ", timerData.tickMethod.ToString()));
+                IuvoDebug.DebugLog(string.Concat(" - Duration: ", timerData.duration.ToString()));
+                IuvoDebug.DebugLog(string.Concat(" - Elapsed Time: ", timerData.elapsedTime.ToString()));
+                IuvoDebug.DebugLog(string.Concat(" - Remaining Time: ", timerData.remainingTime.ToString()));
             }
         }
-
     }
-
 }

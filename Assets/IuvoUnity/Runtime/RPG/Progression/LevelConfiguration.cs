@@ -9,7 +9,7 @@ namespace IuvoUnity
     {
 
         [CreateAssetMenu(fileName = "New Level Configuration", menuName = "IuvoUnity/RPG/Level Configuration")]
-        public class LevelConfiguration : BaseConfig
+        public class LevelConfiguration : BaseConfig<LevelComponent>
         {
             [SerializeField]
             private AnimationCurve DefaultLevelingCurve = new AnimationCurve(
@@ -46,11 +46,6 @@ namespace IuvoUnity
                 }
 //                MaxLevel = Mathf.FloorToInt(expCurve.keys[expCurve.length - 1].time);
 
-                if (!Configured)
-                {
-                    Configure();
-                    Configured = true;
-                }
             }
 
             public virtual void OnDisable()
@@ -188,27 +183,6 @@ namespace IuvoUnity
                     IuvoDebug.DebugLog($"  Max LevelUp Points: {lastLevelComponentData.MaxLevelUpPoints}");
                 }
             }
-
-            #region IConfigurable Interface
-            public override void Configure()
-            {
-                IuvoDebug.DebugLog("Configuring Level...");
-                OnConfigure();
-            }
-            public override void OnConfigure()
-            {
-                IuvoDebug.DebugLog("Level configuration completed.");
-            }
-            public override void Reconfigure()
-            {
-                IuvoDebug.DebugLog("Reconfiguring Level...");
-                OnReconfigure();
-            }
-            public override void OnReconfigure()
-            {
-                IuvoDebug.DebugLog("Level reconfiguration completed.");
-            }
-            #endregion
         }
     }
 }

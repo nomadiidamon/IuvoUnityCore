@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using IuvoUnity.Debug;
 using IuvoUnity.Configurations;
+using IuvoUnity.Interfaces;
 
 namespace IuvoUnity
 {
@@ -40,7 +41,7 @@ namespace IuvoUnity
             }
         }
 
-        public class HealthComponent : MonoBehaviour, ITakeDamage, IHeal
+        public class HealthComponent : MonoBehaviour, ITakeDamage, IHeal, IConfigurable, IReconfigurable
         {
             // may turn to a specific HealthLevel SO
             [SerializeField] private HealthConfiguration HealthConfig;
@@ -205,6 +206,25 @@ namespace IuvoUnity
                     }
                 }
                 OnHealthChanged.Invoke(CurrentHealth, MaxHealth);
+            }
+
+            #endregion
+
+            #region IConfigurable Implementation
+
+            public bool Configured { get; set; }
+            public virtual void OnConfigure()
+            {
+
+            }
+
+            #endregion
+
+            #region IReconfigurable Implementation
+
+            public bool Reconfigured { get; set; }
+            public virtual void OnReconfigure()
+            {
             }
 
             #endregion

@@ -8,7 +8,7 @@ namespace IuvoUnity
     namespace Configurations
     {
         [CreateAssetMenu(fileName = "New Health Configuration", menuName = "IuvoUnity/RPG/Health Configuration")]
-        public class HealthConfiguration : BaseConfig
+        public class HealthConfiguration : BaseConfig<HealthComponent>
         {
             [SerializeField]
             private AnimationCurve DefaultHealthGrowth = new AnimationCurve(
@@ -113,26 +113,6 @@ namespace IuvoUnity
                 IuvoDebug.DebugLog($"Health Configuration: BaseHealth = {BaseHealth}");
             }
 
-            #region IConfigurable Interface
-            public override void Configure()
-            {
-                IuvoDebug.DebugLog("Configuring Level...");
-                OnConfigure();
-            }
-            public override void OnConfigure()
-            {
-                IuvoDebug.DebugLog("Level configuration completed.");
-            }
-            public override void Reconfigure()
-            {
-                IuvoDebug.DebugLog("Reconfiguring Level...");
-                OnReconfigure();
-            }
-            public override void OnReconfigure()
-            {
-                IuvoDebug.DebugLog("Level reconfiguration completed.");
-            }
-            #endregion
         }
     }
 }

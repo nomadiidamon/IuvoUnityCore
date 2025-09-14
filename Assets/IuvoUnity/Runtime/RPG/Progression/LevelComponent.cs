@@ -2,6 +2,7 @@
 using IuvoUnity.Configurations;
 using IuvoUnity.Debug;
 using UnityEngine.Events;
+using IuvoUnity.Interfaces;
 
 namespace IuvoUnity
 {
@@ -36,7 +37,7 @@ namespace IuvoUnity
         }
 
         [RequireComponent(typeof(LevelConfiguration))]
-        public class LevelComponent : MonoBehaviour
+        public class LevelComponent : MonoBehaviour, IConfigurable, IReconfigurable
         {
             public int CurrentLevel { get; private set; }      // The current level of the entity
             public int LevelProgressExperience { get; private set; }       // help EXP towards next level
@@ -437,6 +438,26 @@ namespace IuvoUnity
                 config = null;
                 return false;
             }
+
+            #region IConfigurable Implementation
+
+            public bool Configured { get; set; }
+            public virtual void OnConfigure()
+            {
+
+            }
+
+            #endregion
+
+            #region IReconfigurable Implementation
+
+            public bool Reconfigured { get; set; }
+            public virtual void OnReconfigure()
+            {
+            }
+
+            #endregion
+
         }
     }
 }

@@ -20,7 +20,7 @@ namespace IuvoUnity
         {
             public abstract void Reconfigure(T reconfigurable);
         }
-        public interface IReconfigureable : IuvoInterfaceBase
+        public interface IReconfigurable : IuvoInterfaceBase
         {
             public bool Reconfigured { get; set; }
             public abstract void OnReconfigure();

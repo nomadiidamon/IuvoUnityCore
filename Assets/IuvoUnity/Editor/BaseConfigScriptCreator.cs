@@ -57,7 +57,6 @@ using IuvoUnity.Configurations;
 
 namespace IuvoUnity {{
 
-namespace StateMachine {{
 [CreateAssetMenu(fileName = ""{name}"", menuName = ""IuvoUnity/Configs/{name}"", order = 2)]
 public class {name} : BaseConfig
 {{
@@ -75,19 +74,9 @@ public class {name} : BaseConfig
         // Implement configuration logic here
     }}
 
-    public override void OnConfigure()
-    {{
-        // Implement post-configuration logic here
-    }}
-
     public override void Reconfigure()
     {{
         // Implement reconfiguration logic here
-    }}
-
-    public override void OnReconfigure()
-    {{
-        // Implement post-reconfiguration logic here
     }}
 
     public override void PrintInfo()
@@ -95,8 +84,6 @@ public class {name} : BaseConfig
         base.PrintInfo();
         // Additional info if needed
     }}
-}}
-
 }}
 
 }}";
