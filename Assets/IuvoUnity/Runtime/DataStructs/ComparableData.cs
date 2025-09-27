@@ -3,7 +3,7 @@
 namespace IuvoUnity
 {
 
-    namespace _DataStructs
+    namespace DataStructs
     {
         public interface ComparableData<T> : IDataStructBase
         {
