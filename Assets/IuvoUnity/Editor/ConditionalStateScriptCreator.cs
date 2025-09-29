@@ -6,28 +6,31 @@ namespace IuvoUnity
 {
     namespace Editor
     {
-        public class GenericStateScriptCreator : EditorWindow
+        public class ConditionalStateScriptCreator : EditorWindow
         {
             private string className = "NewGenericState";
+            private string parentFolder = "Assets";
 
-            [MenuItem("Assets/Create/IuvoUnity/ScriptTemplates/Derived GenericState Script", false, 81)]
+            [MenuItem("Assets/Create/IuvoUnity/ScriptTemplates/Derived ConditionalState Script", false, 81)]
             public static void ShowWindow()
             {
-                GetWindow<GenericStateScriptCreator>("Create Derived State");
+                GetWindow<ConditionalStateScriptCreator>("Create Derived State");
             }
 
             private void OnGUI()
             {
-                GUILayout.Label("Create New Derived GenericState", EditorStyles.boldLabel);
+                GUILayout.Label("Create New Derived ConditionalState", EditorStyles.boldLabel);
                 className = EditorGUILayout.TextField("Class Name", className);
+                parentFolder = EditorGUILayout.TextField("Parent Folder", parentFolder);
+
 
                 if (GUILayout.Button("Create Script"))
                 {
-                    CreateDerivedScript(className);
+                    CreateDerivedScript(className, parentFolder);
                 }
             }
 
-            private void CreateDerivedScript(string name)
+            private void CreateDerivedScript(string name, string parentFolder)
             {
                 string folderPath = "Assets";
 
@@ -36,8 +39,12 @@ namespace IuvoUnity
                     string path = AssetDatabase.GetAssetPath(Selection.activeObject);
                     folderPath = Directory.Exists(path) ? path : Path.GetDirectoryName(path);
                 }
-
-                string filePath = Path.Combine(folderPath, name + ".cs");
+                if (!Directory.Exists(parentFolder))
+                {
+                    EditorUtility.DisplayDialog("Error", "Parent folder does not exist!", "OK");
+                    return;
+                }
+                string filePath = Path.Combine(parentFolder, folderPath, name + ".cs");
 
                 if (File.Exists(filePath))
                 {
@@ -55,29 +62,28 @@ namespace IuvoUnity{{
 namespace StateMachine {{
 
 [CreateAssetMenu(fileName = ""{name}"", menuName = ""IuvoUnity/StateMachine/{name}"", order = 2)]
-public class {name} : GenericState
+public class {name} : ConditionalState
 {{
-    // Optional: initialize stateName and updateMode
     public new string stateName = ""{name}"";
     public new UpdateMode updateMode = UpdateMode.None;
 
     // Override condition checks if needed
-    public override bool InterruptConditionsMet(GenericStateMachine stateMachine)
+    public override bool InterruptConditionsMet(ConditionalStateMachine stateMachine)
     {{
         return base.AreConditionsMet(stateInterruptConditions);
     }}
 
-    public override bool ExitConditionsMet(GenericStateMachine stateMachine)
+    public override bool ExitConditionsMet(ConditionalStateMachine stateMachine)
     {{
         return base.AreConditionsMet(stateExitConditions);
     }}
 
-    public override bool EnterConditionsMet(GenericStateMachine stateMachine)
+    public override bool EnterConditionsMet(ConditionalStateMachine stateMachine)
     {{
         return base.AreConditionsMet(stateEnterConditions);
     }}
 
-    public override bool ContinueConditionsMet(GenericStateMachine stateMachine)
+    public override bool ContinueConditionsMet(ConditionalStateMachine stateMachine)
     {{
         return base.AreConditionsMet(stateContinueConditions);
     }}

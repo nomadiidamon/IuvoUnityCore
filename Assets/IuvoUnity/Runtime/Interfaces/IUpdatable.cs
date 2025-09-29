@@ -19,22 +19,22 @@ namespace IuvoUnity
 
         public interface IUpdatable : IUpdate, IFixedUpdate, ILateUpdate
         {
-            StateMachine.UpdateMode updateMode { get; set; }
-            bool HasUpdateMode() => updateMode != StateMachine.UpdateMode.None;
+            StateMachines.CSM.ConditionalStateMachineUpdateMode updateMode { get; set; }
+            bool HasUpdateMode() => updateMode != StateMachines.CSM.ConditionalStateMachineUpdateMode.None;
             virtual void OnUpdate() { }
-            void HandleUpdate(StateMachine.UpdateMode updateMode)
+            void HandleUpdate(StateMachines.CSM.ConditionalStateMachineUpdateMode updateMode)
             {
                 if ((this.updateMode & updateMode) != 0)
                 {
                     switch (updateMode)
                     {
-                        case StateMachine.UpdateMode.Update:
+                        case StateMachines.CSM.ConditionalStateMachineUpdateMode.Update:
                             Update();
                             break;
-                        case StateMachine.UpdateMode.FixedUpdate:
+                        case StateMachines.CSM.ConditionalStateMachineUpdateMode.FixedUpdate:
                             FixedUpdate();
                             break;
-                        case StateMachine.UpdateMode.LateUpdate:
+                        case StateMachines.CSM.ConditionalStateMachineUpdateMode.LateUpdate:
                             LateUpdate();
                             break;
                     }

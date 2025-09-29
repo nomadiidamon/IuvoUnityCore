@@ -1,5 +1,5 @@
 ﻿using IuvoUnity.Interfaces;
-using IuvoUnity.StateMachine;
+using IuvoUnity.StateMachines.CSM;
 using IuvoUnity.Debug;
 using UnityEngine;
 
@@ -30,11 +30,11 @@ namespace IuvoUnity
             public string developerName = "Iuvo";
             public string publisherName = "Iuvo";
 
-            [SerializeField] public GenericStateMachine systemsStateMachine;
+            [SerializeField] public ConditionalStateMachine systemsStateMachine;
             //[SerializeField] public GenericStateMachine gameStateMachine;
-            [SerializeField] public GenericState gameStateMachine;
+            [SerializeField] public ConditionalState gameStateMachine;
             //[SerializeField] public GenericStateMachine menuStateMachine;
-            [SerializeField] public GenericState menuStateMachine;
+            [SerializeField] public ConditionalState menuStateMachine;
 
 
             public void Awake()
