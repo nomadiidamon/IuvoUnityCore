@@ -6,7 +6,7 @@ namespace IuvoUnity
 {
     namespace DataStructs
     {
-        public enum ContextKey_PLAYER_TRANSFORM { Transform, Position, Destination, Velocity, Direction, LookTarget, LastDirection, InputDirection }
+        public enum ContextKey_PLAYER_TRANSFORM { Transform, Position, Destination, Velocity, Direction, LookTarget, LastDirection, InputDirection, MoveSpeed}
 
         public class TransformContext : IContext
         {
@@ -83,6 +83,10 @@ namespace IuvoUnity
             public void SetInputDirection(Vector3 inputDirection) => Set(ContextKey_PLAYER_TRANSFORM.InputDirection, inputDirection);
             public Vector3 GetInputDirection() => Get<Vector3>(ContextKey_PLAYER_TRANSFORM.InputDirection);
             public bool TryGetInputDirection(out Vector3 inputDirection) => TryGet(ContextKey_PLAYER_TRANSFORM.InputDirection, out inputDirection);
+
+            public void SetMoveSpeed(float moveSpeed) => Set(ContextKey_PLAYER_TRANSFORM.MoveSpeed, moveSpeed);
+            public float GetMoveSpeed() => Get<float>(ContextKey_PLAYER_TRANSFORM.MoveSpeed);
+            public bool TryGetMoveSpeed(out float moveSpeed) => TryGet(ContextKey_PLAYER_TRANSFORM.MoveSpeed, out moveSpeed);
         }
     }
 }

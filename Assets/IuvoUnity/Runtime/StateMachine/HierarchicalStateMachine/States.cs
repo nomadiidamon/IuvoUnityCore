@@ -21,7 +21,7 @@ namespace IuvoUnity
                     Airborne = new Airborne(m, this, ctx);
                 }
                 protected override State GetInitialState() => Grounded;
-                protected override State GetTransition() => ctx.isGrounded ? null : Airborne;
+                protected override State GetTransition() => ctx.playerCondition.GetIsGrounded() ? null : Airborne;
 
             }
 
@@ -42,7 +42,7 @@ namespace IuvoUnity
                 protected override State GetTransition()
                 {
 
-                    return ctx.isGrounded ? null : ((PlayerRoot)Parent).Airborne;
+                    return ctx.playerCondition.GetIsGrounded() ? null : ((PlayerRoot)Parent).Airborne;
 
                 }
             }
@@ -55,11 +55,11 @@ namespace IuvoUnity
                     ctx = context;
                 }
 
-                protected override State GetTransition() => Mathf.Abs(ctx.move.x) > 0.01f ? ((Grounded)Parent).Move : null;
+                protected override State GetTransition() => Mathf.Abs(ctx.playerTransform.GetInputDirection().x) > 0.01f ? ((Grounded)Parent).Move : null;
 
                 protected override void OnEnter()
                 {
-                    ctx.velocity = Vector3.zero;
+                    ctx.playerTransform.SetVelocity(Vector3.zero);
                 }
             }
 
@@ -73,15 +73,15 @@ namespace IuvoUnity
 
                 protected override State GetTransition()
                 {
-                    if (!ctx.isGrounded) return ((PlayerRoot)Parent).Airborne;
+                    if (!ctx.playerCondition.GetIsGrounded()) return ((PlayerRoot)Parent).Airborne;
 
-                    return Mathf.Abs(ctx.move.x) < 0.01f ? ((Grounded)Parent).Idle : null;
+                    return Mathf.Abs(ctx.playerTransform.GetInputDirection().x) < 0.01f ? ((Grounded)Parent).Idle : null;
                 }
 
                 protected override void OnUpdate(float deltaTime)
                 {
-                    var target = ctx.move.x * ctx.moveSpeed;
-                    ctx.velocity.x = Mathf.MoveTowards(ctx.velocity.x, target, ctx.acceleration * deltaTime);
+                    var target = ctx.playerTransform.GetInputDirection().x * ctx.playerTransform.GetMoveSpeed();
+                    ctx.playerTransform.SetVelocity(new Vector3(Mathf.MoveTowards(ctx.playerTransform.GetVelocity().x, target, ctx.playerTransform.GetMoveSpeed() * deltaTime), 0.0f, 0.0f));
                 }
             }
 
@@ -103,7 +103,7 @@ namespace IuvoUnity
                     ctx = context;
                 }
 
-                protected override State GetTransition() => ctx.isGrounded ? ((PlayerRoot)Parent).Grounded : null;
+                protected override State GetTransition() => ctx.playerCondition.GetIsGrounded() ? ((PlayerRoot)Parent).Grounded : null;
                 protected override void OnEnter()
                 {
 
