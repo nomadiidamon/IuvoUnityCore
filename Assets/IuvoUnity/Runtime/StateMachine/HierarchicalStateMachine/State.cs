@@ -1,0 +1,74 @@
+using IuvoUnity.BaseClasses;
+using System.Collections.Generic;
+
+namespace IuvoUnity
+{
+    namespace StateMachines
+    {
+        namespace HSM
+        {
+            public abstract class State : IDataStructBase
+            {
+                public readonly StateMachine Machine;
+                public State Parent;
+                public State ActiveChild;
+
+                public State(StateMachine machine, State parent = null)
+                {
+                    Machine = machine;
+                    Parent = parent;
+                }
+
+                protected virtual State GetInitialState() => null; // Initial child to enter when this state starts (null = this is the leaf)
+                protected virtual State GetTransition() => null; // Target state to switch to (null = no transition)
+
+                // Lifecycle hooks
+                protected virtual void OnEnter() { }
+                protected virtual void OnExit() { }
+                protected virtual void OnUpdate(float deltaTime) { }
+
+                internal void Enter()
+                {
+                    if (Parent != null) Parent.ActiveChild = this;
+                    OnEnter();
+                    State init = GetInitialState();
+                    if (init != null) init.Enter();
+                }
+                internal void Exit()
+                {
+                    if (ActiveChild != null) ActiveChild.Exit();
+                    ActiveChild = null;                 
+                    OnExit();
+                }
+                internal void Update(float deltaTime)
+                {
+                    State t = GetTransition();
+                    if (t != null) 
+                    {
+                        Machine.Sequencer.RequestTransition(this, t);
+                        return;
+                    }
+
+                    if (ActiveChild != null ) ActiveChild.Update(deltaTime);
+                    OnUpdate(deltaTime);
+                }
+
+
+                // Returns the deepest currently-active descendant state (the leaf og the active path).
+                public State Leaf()
+                {
+                    State s = this;
+                    while (s.ActiveChild != null) s = s.ActiveChild;
+                    return s;
+                }
+
+                // Yields this state and then each of its ancestors up to the root (self -> parent -> ... -> root).
+                public IEnumerable<State> PathToRoot()
+                {
+                    for (State s = this; s != null; s = s.Parent) yield return s;
+                }
+            }
+
+        }
+    }
+}
