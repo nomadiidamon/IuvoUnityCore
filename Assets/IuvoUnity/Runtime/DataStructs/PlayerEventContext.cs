@@ -1,4 +1,5 @@
 using IuvoUnity.Interfaces;
+using IuvoUnity.Events;
 using System.Collections.Generic;
 using UnityEngine.Events;
 
@@ -6,21 +7,21 @@ namespace IuvoUnity
 {
     namespace DataStructs
     {
-        public enum ContextKey_PLAYER_EVENT { OnDamageTaken, OnDeath, OnRevive, OnItemPickup, OnObjectiveComplete, OnInteract, OnPause }
+        public enum ContextKey_EVENT { OnDamageTaken, OnDeath, OnRevive, OnItemPickup, OnObjectiveComplete, OnInteract, OnPause }
 
-        public class PlayerEventContext : IContext
+        public class EventContext : IContext
         {
-            public readonly Dictionary<ContextKey_PLAYER_EVENT, FlexibleEvent> events = new Dictionary<ContextKey_PLAYER_EVENT, FlexibleEvent>();
+            public readonly Dictionary<ContextKey_EVENT, FlexibleEvent> events = new Dictionary<ContextKey_EVENT, FlexibleEvent>();
 
-            public PlayerEventContext()
+            public EventContext()
             {
-                foreach (ContextKey_PLAYER_EVENT key in System.Enum.GetValues(typeof(ContextKey_PLAYER_EVENT)))
+                foreach (ContextKey_EVENT key in System.Enum.GetValues(typeof(ContextKey_EVENT)))
                 {
                     events[key] = new FlexibleEvent();
                 }
             }
 
-            public bool TryGetEvent(ContextKey_PLAYER_EVENT key, out FlexibleEvent flexibleEvent)
+            public bool TryGetEvent(ContextKey_EVENT key, out FlexibleEvent flexibleEvent)
             {
                 if (events.TryGetValue(key, out flexibleEvent))
                 {
@@ -31,7 +32,7 @@ namespace IuvoUnity
                 return false;
             }
 
-            public void Clear(ContextKey_PLAYER_EVENT key)
+            public void Clear(ContextKey_EVENT key)
             {
                 if (TryGetEvent(key, out var flexibleEvent))
                 {
@@ -47,7 +48,7 @@ namespace IuvoUnity
                 }
             }
 
-            public void AddListener(ContextKey_PLAYER_EVENT key, System.Action listener)
+            public void AddListener(ContextKey_EVENT key, System.Action listener)
             {
                 if (TryGetEvent(key, out var flexibleEvent))
                 {
@@ -55,7 +56,7 @@ namespace IuvoUnity
                 }
             }
 
-            public void RemoveListener(ContextKey_PLAYER_EVENT key, System.Action listener)
+            public void RemoveListener(ContextKey_EVENT key, System.Action listener)
             {
                 if (TryGetEvent(key, out var flexibleEvent))
                 {
@@ -63,7 +64,7 @@ namespace IuvoUnity
                 }
             }
 
-            public void AddUnityListener(ContextKey_PLAYER_EVENT key, UnityAction listener)
+            public void AddUnityListener(ContextKey_EVENT key, UnityAction listener)
             {
                 if (TryGetEvent(key, out var flexibleEvent))
                 {
@@ -71,7 +72,7 @@ namespace IuvoUnity
                 }
             }
 
-            public void RemoveUnityListener(ContextKey_PLAYER_EVENT key, UnityAction listener)
+            public void RemoveUnityListener(ContextKey_EVENT key, UnityAction listener)
             {
                 if (TryGetEvent(key, out var flexibleEvent))
                 {
@@ -79,7 +80,7 @@ namespace IuvoUnity
                 }
             }
 
-            public FlexibleEvent GetEvent(ContextKey_PLAYER_EVENT key)
+            public FlexibleEvent GetEvent(ContextKey_EVENT key)
             {
                 if (TryGetEvent(key, out var flexibleEvent))
                 {
@@ -89,7 +90,7 @@ namespace IuvoUnity
                 return null;
             }
 
-            public bool HasEvent(ContextKey_PLAYER_EVENT key)
+            public bool HasEvent(ContextKey_EVENT key)
             {
                 return events.ContainsKey(key);
             }

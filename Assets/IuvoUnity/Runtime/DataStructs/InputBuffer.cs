@@ -8,7 +8,7 @@ using UnityEngine;
 namespace IuvoUnity
 
 {
-    namespace _DataStructs
+    namespace DataStructs
     {
         [System.Serializable]
         public class InputBuffer<T> : IDataStructBase

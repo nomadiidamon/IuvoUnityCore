@@ -1,8 +1,10 @@
+using IuvoUnity.BaseClasses;
+
 namespace IuvoUnity
 {
     namespace Interfaces
     {
-        public interface ISerializer
+        public interface ISerializer : IuvoInterfaceBase
         {
             string Serialize<T>(T data);
             T Deserialize<T>(string data);

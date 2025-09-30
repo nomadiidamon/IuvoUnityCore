@@ -3,7 +3,7 @@ using UnityEngine.Rendering;
 
 namespace IuvoUnity
 {
-    namespace _Extensions
+    namespace Extensions
     {
         /// <summary>
         /// Extension methods for UnityEngine.Light to simplify common property adjustments.

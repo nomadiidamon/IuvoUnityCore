@@ -3,6 +3,7 @@ using IuvoUnity.DataStructs;
 using TMPro;
 using IuvoUnity.Extensions;
 using IuvoUnity.IuvoTime;
+using IuvoUnity.Configurations;
 using IuvoUnity.Debug;
 using IuvoUnity.Editor;
 

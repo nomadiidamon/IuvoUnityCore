@@ -1,11 +1,12 @@
 ﻿
+using IuvoUnity.BaseClasses;
 using UnityEngine;
 
 namespace IuvoUnity
 {
     namespace Interfaces
     {
-        public interface IAnimationHandler
+        public interface IAnimationHandler : IuvoInterfaceBase
         {
             void Play(string animationName);
             void Play(AnimationClip clip);

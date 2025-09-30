@@ -1,7 +1,7 @@
 ﻿
 namespace IuvoUnity
 {
-    namespace _Animation
+    namespace Animations
     {
         public  class AnimationIKPair
         {

@@ -4,32 +4,34 @@ using UnityEngine;
 
 namespace IuvoUnity
 {
-    namespace Editor { }
-    [CustomPropertyDrawer(typeof(DebugButton))]
-    public class DebugButtonDrawer : PropertyDrawer
+    namespace Editor
     {
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        [CustomPropertyDrawer(typeof(DebugButton))]
+        public class DebugButtonDrawer : PropertyDrawer
         {
-            SerializedProperty labelProp = property.FindPropertyRelative("Label");
-
-            // Draw the button
-            if (GUI.Button(position, string.IsNullOrEmpty(labelProp.stringValue) ? "Debug Action" : labelProp.stringValue))
+            public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
             {
-                // Get the target object that owns this property
-                object target = property.serializedObject.targetObject;
+                SerializedProperty labelProp = property.FindPropertyRelative("Label");
 
-                // Get the actual field value (DebugButton instance)
-                var fieldInfo = this.fieldInfo;
-                var debugButton = fieldInfo.GetValue(target) as DebugButton;
+                // Draw the button
+                if (GUI.Button(position, string.IsNullOrEmpty(labelProp.stringValue) ? "Debug Action" : labelProp.stringValue))
+                {
+                    // Get the target object that owns this property
+                    object target = property.serializedObject.targetObject;
 
-                // Call assigned action
-                debugButton.OnClick.Invoke();
+                    // Get the actual field value (DebugButton instance)
+                    var fieldInfo = this.fieldInfo;
+                    var debugButton = fieldInfo.GetValue(target) as DebugButton;
+
+                    // Call assigned action
+                    debugButton.OnClick.Invoke();
+                }
             }
-        }
 
-        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-        {
-            return EditorGUIUtility.singleLineHeight + 2;
+            public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+            {
+                return EditorGUIUtility.singleLineHeight + 2;
+            }
         }
     }
 }

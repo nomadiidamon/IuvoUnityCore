@@ -1,52 +1,54 @@
-﻿using IuvoUnity._Physics;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace IuvoUnity.src._Physics
+namespace IuvoUnity
 {
-    [System.Serializable]
-    public class SphereCastData
+    namespace IuvoPhysics
     {
-        [SerializeField] public Vector3 checkOrigin = Vector3.zero;
-        [SerializeField] public float distanceToCheck = 1.25f;
-        [SerializeField] public float radiusToCheck = 1.0f;
-        [SerializeField] public Vector3 directionToCheck = Vector3.down;
-        [SerializeField] public bool isTouching = false;
-        [SerializeField] public Ray ray = new Ray();
-        [SerializeField] public RaycastHit hit = new RaycastHit();
-        [SerializeField] public LayerMask layerMask = new LayerMask();
-
-        SphereCastData()
+        [System.Serializable]
+        public class SphereCastData
         {
-            checkOrigin = Vector3.zero;
-            distanceToCheck = 1.25f;
-            radiusToCheck = 1.0f;
-            directionToCheck = Vector3.down;
-            isTouching = false;
-            ray = new Ray(checkOrigin, directionToCheck);
-            hit = new RaycastHit();
-            layerMask = LayerMask.GetMask("Default");
-        }
-    }
+            [SerializeField] public Vector3 checkOrigin = Vector3.zero;
+            [SerializeField] public float distanceToCheck = 1.25f;
+            [SerializeField] public float radiusToCheck = 1.0f;
+            [SerializeField] public Vector3 directionToCheck = Vector3.down;
+            [SerializeField] public bool isTouching = false;
+            [SerializeField] public Ray ray = new Ray();
+            [SerializeField] public RaycastHit hit = new RaycastHit();
+            [SerializeField] public LayerMask layerMask = new LayerMask();
 
-    [System.Serializable]
-    public class SphereCaster : MonoBehaviour
-    {
-        [SerializeField] SphereCastData castData;
-
-        public void Start()
-        {
-            castData = GetComponent<SphereCastData>();
+            SphereCastData()
+            {
+                checkOrigin = Vector3.zero;
+                distanceToCheck = 1.25f;
+                radiusToCheck = 1.0f;
+                directionToCheck = Vector3.down;
+                isTouching = false;
+                ray = new Ray(checkOrigin, directionToCheck);
+                hit = new RaycastHit();
+                layerMask = LayerMask.GetMask("Default");
+            }
         }
 
-        public void FixedUpdate()
+        [System.Serializable]
+        public class SphereCaster : MonoBehaviour
         {
-            castData.isTouching = Physics.SphereCast(castData.checkOrigin, castData.radiusToCheck, castData.directionToCheck, out castData.hit, castData.distanceToCheck, castData.layerMask);
-        }
+            [SerializeField] SphereCastData castData;
 
-        public SphereCastData Cast(SphereCastData castData)
-        {
-            castData.isTouching = Physics.SphereCast(castData.checkOrigin, castData.radiusToCheck, castData.directionToCheck, out castData.hit, castData.distanceToCheck, castData.layerMask);
-            return castData;
+            public void Start()
+            {
+                castData = GetComponent<SphereCastData>();
+            }
+
+            public void FixedUpdate()
+            {
+                castData.isTouching = Physics.SphereCast(castData.checkOrigin, castData.radiusToCheck, castData.directionToCheck, out castData.hit, castData.distanceToCheck, castData.layerMask);
+            }
+
+            public SphereCastData Cast(SphereCastData castData)
+            {
+                castData.isTouching = Physics.SphereCast(castData.checkOrigin, castData.radiusToCheck, castData.directionToCheck, out castData.hit, castData.distanceToCheck, castData.layerMask);
+                return castData;
+            }
         }
     }
 }

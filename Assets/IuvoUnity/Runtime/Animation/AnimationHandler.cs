@@ -5,7 +5,7 @@ using UnityEngine.Playables;
 
 namespace IuvoUnity
 {
-    namespace _Animation
+    namespace Animations
     {
         [System.Serializable]
         public class AnimationHandler : IAnimationHandler

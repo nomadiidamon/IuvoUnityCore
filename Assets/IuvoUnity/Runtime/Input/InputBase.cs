@@ -7,7 +7,7 @@ using IuvoUnity.Debug;
 
 namespace IuvoUnity
 {
-    namespace _Input
+    namespace Inputs
     {
         public abstract class InputActionBase : MonoBehaviour, IEnableable
         {

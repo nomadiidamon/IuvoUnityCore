@@ -6,16 +6,16 @@ namespace IuvoUnity
 {
     namespace DataStructs
     {
-        public enum ContextKey_PLAYER_HANDLER
+        public enum ContextKey_PLAYER_HANDLERS
         { AimHandler, AnimatorHandler, CameraHandler, CombatHandler, InputHandler, MovementHandler, RotationHandler, StatHandler, UIHandler, PlayerManager }
 
-        public class PlayerHandlerContext : IContext
+        public class PlayerHandlersContext : IContext
         {
-            private ConcurrentDictionary<ContextKey_PLAYER_HANDLER, IPlayerHandler> handlers = new ConcurrentDictionary<ContextKey_PLAYER_HANDLER, IPlayerHandler>();
+            private ConcurrentDictionary<ContextKey_PLAYER_HANDLERS, IPlayerHandler> handlers = new ConcurrentDictionary<ContextKey_PLAYER_HANDLERS, IPlayerHandler>();
 
-            public PlayerHandlerContext()
+            public PlayerHandlersContext()
             {
-                foreach (ContextKey_PLAYER_HANDLER key in System.Enum.GetValues(typeof(ContextKey_PLAYER_HANDLER)))
+                foreach (ContextKey_PLAYER_HANDLERS key in System.Enum.GetValues(typeof(ContextKey_PLAYER_HANDLERS)))
                 {
                     handlers[key] = null;
                 }
@@ -26,12 +26,12 @@ namespace IuvoUnity
                 ClearHandlers();
             }
 
-            public T GetHandler<T>(ContextKey_PLAYER_HANDLER key) where T : class, IPlayerHandler
+            public T GetHandler<T>(ContextKey_PLAYER_HANDLERS key) where T : class, IPlayerHandler
             {
                 return handlers.TryGetValue(key, out var handler) ? handler as T : null;
             }
 
-            public void SetHandler(ContextKey_PLAYER_HANDLER key, IPlayerHandler handler)
+            public void SetHandler(ContextKey_PLAYER_HANDLERS key, IPlayerHandler handler)
             {
                 handlers[key] = handler;
             }

@@ -2,7 +2,7 @@
 
 namespace IuvoUnity
 {
-    namespace _Extensions
+    namespace Extensions
     {
         /// <summary>
         /// Provides extension methods for the <see cref="Renderer"/> component.

@@ -1,14 +1,13 @@
-﻿using IuvoUnity._DataStructs;
-using IuvoUnity.Interfaces;
-using UnityEditor;
+﻿using IuvoUnity.Interfaces;
+using IuvoUnity.DataStructs;
 using UnityEngine;
 
 namespace IuvoUnity
 {
-    namespace _DataStructs
+    namespace BaseClasses
     {
         [System.Serializable]
-        public class IuvoAnimation
+        public class IuvoAnimation : IDataStructBase
         {
             public AnimationStateData stateData;
             public AnimationBlendData blendData;

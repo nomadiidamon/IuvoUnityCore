@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using IuvoUnity.Configurations;
+using IuvoUnity.Interfaces;
+using IuvoUnity.Events;
 using IuvoUnity.Debug;
 using UnityEngine.Events;
-using IuvoUnity.Interfaces;
 
 namespace IuvoUnity
 {

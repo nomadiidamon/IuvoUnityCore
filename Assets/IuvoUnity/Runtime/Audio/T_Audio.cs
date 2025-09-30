@@ -1,7 +1,7 @@
 ﻿
 namespace IuvoUnity
 {
-    namespace _Audio
+    namespace Audio
     {
         public  class AudioClip
         {

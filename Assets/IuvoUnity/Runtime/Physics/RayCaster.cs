@@ -2,7 +2,7 @@
 
 namespace IuvoUnity
 {
-    namespace _Physics
+    namespace IuvoPhysics
     {
         [System.Serializable]
         public class RayCastData

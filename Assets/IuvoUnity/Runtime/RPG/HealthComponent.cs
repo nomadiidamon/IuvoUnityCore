@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using IuvoUnity.Debug;
+using IuvoUnity.Events;
 using IuvoUnity.Configurations;
 using IuvoUnity.Interfaces;
 

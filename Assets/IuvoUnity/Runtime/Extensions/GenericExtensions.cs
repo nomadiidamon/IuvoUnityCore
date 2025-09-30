@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System;
-using UnityEngine;
 
 
 namespace IuvoUnity
 {
-    namespace _Extensions
+    namespace Extensions
     {
         /// <summary>
         /// Provides generic extension methods for safe invocation, dictionary operations, and string formatting.

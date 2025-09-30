@@ -1,3 +1,4 @@
+using IuvoUnity.BaseClasses;
 using IuvoUnity.DataStructs;
 
 namespace IuvoUnity
@@ -5,10 +6,10 @@ namespace IuvoUnity
 
     namespace Interfaces
     {
-        public interface IPlayerHandler
+        public interface IPlayerHandler : IuvoInterfaceBase
         {
             PlayerContext playerContext { get; set; }
-            ContextKey_PLAYER_HANDLER HandlerKey { get; }
+            ContextKey_PLAYER_HANDLERS HandlerKey { get; }
 
             public void UpdateHandlerInContext()
             {

@@ -1,4 +1,4 @@
-using IuvoUnity.BaseClasses;
+using IuvoUnity.Configurations;
 using IuvoUnity.DataStructs;
 using UnityEngine;
 

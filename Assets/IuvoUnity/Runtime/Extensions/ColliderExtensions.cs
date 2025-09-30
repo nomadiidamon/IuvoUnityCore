@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace IuvoUnity
 {
-    namespace _Extensions
+    namespace Extensions
     {
         public static class ColliderExtensions
         {

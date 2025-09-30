@@ -7,20 +7,20 @@ namespace IuvoUnity
         public class PlayerContext : IContext
         {
             public ActorContext actorContext;
-            public PlayerHandlerContext playerHandlers;
+            public PlayerHandlersContext playerHandlers;
             public ConditionContext playerCondition;
-            public StatContext playerStats;
+            public StatsContext playerStats;
             public TransformContext playerTransform;
-            public PlayerEventContext playerEvents;
+            public EventContext playerEvents;
 
             public PlayerContext()
             {
                 actorContext = new ActorContext();
-                playerHandlers = new PlayerHandlerContext();
+                playerHandlers = new PlayerHandlersContext();
                 playerCondition = new ConditionContext();
-                playerStats = new StatContext();
+                playerStats = new StatsContext();
                 playerTransform = new TransformContext();
-                playerEvents = new PlayerEventContext();
+                playerEvents = new EventContext();
             }
             public void Dispose()
             {

@@ -4,7 +4,7 @@ using IuvoUnity.BaseClasses;
 
 namespace IuvoUnity
 {
-    namespace _DataStructs
+    namespace DataStructs
     {
         public class AnimationStateData : IDataStructBase
         {

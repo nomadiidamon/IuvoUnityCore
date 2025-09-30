@@ -1,11 +1,10 @@
-﻿using IuvoUnity.IuvoPhysics;
-using IuvoUnity.Singletons;
+﻿using IuvoUnity.Singletons;
 using UnityEngine;
 using IuvoUnity.Extensions;
 
 namespace IuvoUnity
 {
-    namespace Controllers
+    namespace IuvoPhysics
     {
         [System.Serializable]
         [RequireComponent(typeof(GroundCheck))]

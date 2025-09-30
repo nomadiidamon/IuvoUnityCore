@@ -1,5 +1,4 @@
-﻿using IuvoUnity.Controllers;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace IuvoUnity
 {

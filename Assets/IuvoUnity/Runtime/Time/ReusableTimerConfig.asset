@@ -16,7 +16,7 @@ MonoBehaviour:
   timerData:
     activityMode: 3
     tickMethod: 0
-    duration: 5
+    duration: 15
     elapsedTime: 0
     remainingTime: 0
     laps: []

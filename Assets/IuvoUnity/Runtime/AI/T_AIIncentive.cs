@@ -1,7 +1,7 @@
 ﻿
 namespace IuvoUnity
 {
-    namespace _AI
+    namespace AI
     {
         public  class AIIncentive
         {

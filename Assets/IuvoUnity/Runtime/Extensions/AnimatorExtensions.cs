@@ -2,7 +2,7 @@
 
 namespace IuvoUnity
 {
-    namespace _Extensions
+    namespace Extensions
     {
         public static class AnimatorExtensions
         {
