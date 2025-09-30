@@ -1,4 +1,5 @@
 using UnityEngine;
+using IuvoUnity.Singletons;
 using IuvoUnity.BaseClasses;
 using System.Collections;
 

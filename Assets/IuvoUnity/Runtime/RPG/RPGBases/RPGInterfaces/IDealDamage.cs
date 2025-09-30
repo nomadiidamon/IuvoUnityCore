@@ -1,4 +1,4 @@
-﻿using IuvoUnity._BaseClasses._ECS;
+﻿using IuvoUnity.BaseClasses.ECS;
 using IuvoUnity.BaseClasses;
 using System.Collections.Generic;
 

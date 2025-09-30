@@ -1,10 +1,10 @@
 ﻿
 namespace IuvoUnity
 {
-    namespace _BaseClasses
+    namespace BaseClasses
     {
 
-        namespace _ECS
+        namespace ECS
         {
             /// Class
             // TODO: class to handle all entities registered within a registry

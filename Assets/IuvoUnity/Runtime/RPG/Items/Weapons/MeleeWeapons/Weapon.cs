@@ -1,5 +1,5 @@
 ﻿using IuvoUnity.BaseClasses.RPG.Items;
-using IuvoUnity._BaseClasses._ECS;
+using IuvoUnity.BaseClasses.ECS;
 using IuvoUnity.DataStructs;
 using System;
 using System.Collections.Generic;

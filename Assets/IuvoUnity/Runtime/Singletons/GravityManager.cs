@@ -7,9 +7,8 @@ namespace IuvoUnity
         /// <summary>
         /// Global gravity manager for all gravity bodies.
         /// </summary>
-        public class GravityManager : MonoBehaviour
+        public class GravityManager : PersistentSingleton<GravityManager>
         {
-            public static GravityManager Instance;
 
             [SerializeField] private Vector3 defaultDirection = Vector3.down;
             [SerializeField] private float defaultStrength = 9.81f;
@@ -17,11 +16,9 @@ namespace IuvoUnity
             public Vector3 gravityDirection { get; private set; } = Vector3.zero;
             public float gravityStrength { get; private set; } = 0.0f;
 
-            void Awake()
+            protected override void Awake()
             {
-                if (Instance == null) Instance = this;
-                else Destroy(gameObject);
-                DontDestroyOnLoad(gameObject);
+                base.Awake();
             }
 
             public Vector3 GravityDirection()

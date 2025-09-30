@@ -1,10 +1,10 @@
-using IuvoUnity._ECS;
+using IuvoUnity.ECS;
 
 namespace IuvoUnity
 {
-    namespace _BaseClasses  
+    namespace BaseClasses  
     {
-        namespace _ECS
+        namespace ECS
         {
             public class IuvoTimer
             {

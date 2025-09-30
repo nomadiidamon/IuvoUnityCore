@@ -1,65 +1,67 @@
-/// The following is a class obtained from { adammyhre } @ github
-/// Link to repository is as follows: https://github.com/adammyhre/Unity-Inventory-System/tree/master
-
-
-
 using UnityEngine;
 
-public class PersistentSingleton<T> : MonoBehaviour where T : Component
+
+namespace IuvoUnity
 {
-    [Header("Persistent Singleton")]
-    [Tooltip("if this is true, this singleton will auto detach if it finds itself parented on awake")]
-    public bool UnparentOnAwake = true;
-
-    public static bool HasInstance => instance != null;
-    public static T Current => instance;
-
-    protected static T instance;
-
-    public static T Instance
+    namespace Singletons
     {
-        get
+        public class PersistentSingleton<T> : MonoBehaviour where T : Component
         {
-            if (instance == null)
+            [Header("Persistent Singleton")]
+            [Tooltip("if this is true, this singleton will auto detach if it finds itself parented on awake")]
+            public bool UnparentOnAwake = true;
+
+            public static bool HasInstance => instance != null;
+            public static T Current => instance;
+
+            protected static T instance;
+
+            public static T Instance
             {
-                instance = FindFirstObjectByType<T>();
-                if (instance == null)
+                get
                 {
-                    GameObject obj = new GameObject();
-                    obj.name = typeof(T).Name + "AutoCreated";
-                    instance = obj.AddComponent<T>();
+                    if (instance == null)
+                    {
+                        instance = FindFirstObjectByType<T>();
+                        if (instance == null)
+                        {
+                            GameObject obj = new GameObject();
+                            obj.name = typeof(T).Name + "AutoCreated";
+                            instance = obj.AddComponent<T>();
+                        }
+                    }
+
+                    return instance;
                 }
             }
 
-            return instance;
-        }
-    }
+            protected virtual void Awake() => InitializeSingleton();
 
-    protected virtual void Awake() => InitializeSingleton();
-
-    protected virtual void InitializeSingleton()
-    {
-        if (!Application.isPlaying)
-        {
-            return;
-        }
-
-        if (UnparentOnAwake)
-        {
-            transform.SetParent(null);
-        }
-
-        if (instance == null)
-        {
-            instance = this as T;
-            DontDestroyOnLoad(transform.gameObject);
-            enabled = true;
-        }
-        else
-        {
-            if (this != instance)
+            protected virtual void InitializeSingleton()
             {
-                Destroy(this.gameObject);
+                if (!Application.isPlaying)
+                {
+                    return;
+                }
+
+                if (UnparentOnAwake)
+                {
+                    transform.SetParent(null);
+                }
+
+                if (instance == null)
+                {
+                    instance = this as T;
+                    DontDestroyOnLoad(transform.gameObject);
+                    enabled = true;
+                }
+                else
+                {
+                    if (this != instance)
+                    {
+                        Destroy(this.gameObject);
+                    }
+                }
             }
         }
     }

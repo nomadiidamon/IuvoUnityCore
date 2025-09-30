@@ -2,9 +2,9 @@
 
 namespace IuvoUnity
 {
-    namespace _BaseClasses
+    namespace BaseClasses
     {
-        namespace _ECS
+        namespace ECS
         {
             public class MonoEntity : MonoBehaviour
             {

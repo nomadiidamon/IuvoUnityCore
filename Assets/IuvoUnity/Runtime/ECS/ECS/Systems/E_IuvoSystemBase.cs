@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using System;
-using IuvoUnity.BaseClasses;
 
 
 namespace IuvoUnity
 {
-    namespace _BaseClasses
+    namespace BaseClasses
     {
-        namespace _ECS
+        namespace ECS
         {
             public abstract class IuvoSystem
             {

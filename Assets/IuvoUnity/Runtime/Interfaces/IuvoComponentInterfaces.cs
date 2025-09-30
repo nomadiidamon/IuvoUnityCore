@@ -1,5 +1,5 @@
 ﻿using IuvoUnity.BaseClasses;
-using IuvoUnity._BaseClasses._ECS;
+using IuvoUnity.BaseClasses.ECS;
 using System;
 
 namespace IuvoUnity

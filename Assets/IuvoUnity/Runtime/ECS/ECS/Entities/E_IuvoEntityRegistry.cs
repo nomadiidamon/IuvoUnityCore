@@ -1,13 +1,12 @@
-using IuvoUnity._ECS;
+using IuvoUnity.ECS;
 using System;
 using System.Collections.Generic;
-using IuvoUnity.BaseClasses;
 
 namespace IuvoUnity
 {
-    namespace _BaseClasses
+    namespace BaseClasses
     {
-        namespace _ECS
+        namespace ECS
         {
 
             public class ComponentFilter

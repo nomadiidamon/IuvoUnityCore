@@ -1,12 +1,12 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
-using IuvoUnity._BaseClasses._ECS;
+using IuvoUnity.BaseClasses.ECS;
 using IuvoUnity.BaseClasses;
 
 namespace IuvoUnity
 {
-    namespace _ECS
+    namespace ECS
     {
         public class NameComponent : IuvoComponentBase
         {

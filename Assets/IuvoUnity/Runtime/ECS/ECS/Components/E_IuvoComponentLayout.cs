@@ -1,4 +1,4 @@
-﻿using IuvoUnity._BaseClasses._ECS;
+﻿using IuvoUnity.BaseClasses.ECS;
 using IuvoUnity.Interfaces;
 using IuvoUnity.BaseClasses;
 
@@ -6,7 +6,7 @@ using IuvoUnity.BaseClasses;
 namespace IuvoUnity
 {
 
-    namespace _ECS
+    namespace ECS
     {
         public abstract class IuvoComponentLayout : IuvoComponentBase, IAddableEntity, IInitializeEntity, IUpdatableEntity
         {
