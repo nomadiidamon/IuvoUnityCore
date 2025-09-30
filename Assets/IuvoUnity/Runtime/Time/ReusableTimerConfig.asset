@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IuvoUnity.IuvoTime.TimerConfiguration
   configName: TimerConfiguration
   timerData:
-    activityMode: 3
+    activityMode: 7
     tickMethod: 0
-    duration: 3
+    duration: 15
     elapsedTime: 0
     remainingTime: 0
     laps: []

@@ -346,8 +346,6 @@ GameObject:
   - component: {fileID: 913001629}
   - component: {fileID: 913001633}
   - component: {fileID: 913001634}
-  - component: {fileID: 913001635}
-  - component: {fileID: 913001636}
   m_Layer: 0
   m_Name: GravityBody
   m_TagString: Untagged
@@ -488,35 +486,6 @@ MonoBehaviour:
   directionToCheck: {x: 0, y: -1, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   Grounded: 0
---- !u!114 &913001635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913001628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 703324b642b1eed4eaf550bb3c209640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DualTimerTest
-  gravityBody: {fileID: 913001633}
-  groundCheck: {fileID: 913001634}
---- !u!114 &913001636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913001628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 895d2fa886a6c504791a4560b4a2de3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TimerTest
-  gravityBody: {fileID: 913001633}
-  groundCheck: {fileID: 913001634}
-  ResetPositionTimer: {fileID: 1936584253}
 --- !u!1 &1241750979
 GameObject:
   m_ObjectHideFlags: 0
