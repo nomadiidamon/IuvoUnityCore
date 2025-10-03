@@ -77,20 +77,6 @@ namespace IuvoUnity
                 source.transform.position = newPosition;
             }
 
-            public static void SnapToBoxCollider(this BoxCollider source, BoxCollider target, Vector3 direction)
-            {
-                Bounds sourceBounds = source.GetWorldBounds();
-                Bounds targetBounds = target.GetWorldBounds();
-
-                Vector3 offset = direction.normalized * (
-                    Vector3.Scale(source.size, source.transform.lossyScale).magnitude / 2f +
-                    Vector3.Scale(target.size, target.transform.lossyScale).magnitude / 2f
-                );
-
-                Vector3 targetFace = target.GetFaceCenter(direction);
-                source.transform.position = targetFace + offset;
-            }
-
             public static bool IsTouching(this BoxCollider col, BoxCollider other, float tolerance = 0.01f)
             {
                 return col.GetWorldBounds().Intersects(other.GetWorldBounds()) ||
@@ -122,52 +108,6 @@ namespace IuvoUnity
                 }
 
                 return worldCorners;
-            }
-
-            public static void SnapCornerTo(this BoxCollider source, int sourceCornerIndex, BoxCollider target, int targetCornerIndex)
-            {
-                Vector3[] sourceCorners = source.GetWorldCorners();
-                Vector3[] targetCorners = target.GetWorldCorners();
-
-                Vector3 targetCorner = targetCorners[targetCornerIndex];
-                Vector3 sourceCorner = sourceCorners[sourceCornerIndex];
-                Vector3 offset = targetCorner - sourceCorner;
-
-                source.transform.position += offset;
-            }
-            /*                      KEY FOR THE ABOVE
-                    Index       Description             Coordinates(relative)
-                    0	        Bottom-Left-Back            (-x, -y, -z)
-                    1	        Bottom-Left-Front           (-x, -y, +z)
-                    2	        Top-Left-Back               (-x, +y, -z)
-                    3	        Top-Left-Front              (-x, +y, +z)
-                    4	        Bottom-Right-Back           (+x, -y, -z)
-                    5	        Bottom-Right-Front          (+x, -y, +z)
-                    6	        Top-Right-Back              (+x, +y, -z)
-                    7	        Top-Right-Front             (+x, +y, +z)
-            */
-
-
-            public static void SnapToNearestCorner(this BoxCollider source, BoxCollider target)
-            {
-                Vector3[] sourceCorners = source.GetWorldCorners();
-                Vector3[] targetCorners = target.GetWorldCorners();
-
-                Vector3 closestTargetCorner = targetCorners[0];
-                float closestDistance = Mathf.Infinity;
-
-                foreach (Vector3 targetCorner in targetCorners)
-                {
-                    float distance = Vector3.Distance(source.transform.position, targetCorner);
-                    if (distance < closestDistance)
-                    {
-                        closestTargetCorner = targetCorner;
-                        closestDistance = distance;
-                    }
-                }
-
-                // Snap the source BoxCollider to the closest corner of the target
-                source.transform.position = closestTargetCorner - (source.transform.position - source.GetWorldCorners()[0]);
             }
 
             public static bool IsPointInside(this BoxCollider box, Vector3 point)
@@ -257,25 +197,6 @@ namespace IuvoUnity
                 Vector3 worldCenter = col.transform.TransformPoint(col.center);
                 Vector3 worldSize = Vector3.Scale(col.size, col.transform.lossyScale);
                 return new Bounds(worldCenter, worldSize);
-            }
-
-            public static Vector3 GetFaceCenter(this BoxCollider col, Vector3 normal)
-            {
-                Bounds bounds = col.GetWorldBounds();
-                return bounds.center + Vector3.Scale(bounds.extents, normal.normalized);
-            }
-
-            public static Vector3[] GetAllFaceCenters(this BoxCollider col)
-            {
-                return new Vector3[]
-                {
-                    col.GetFaceCenter(Vector3.right),
-                    col.GetFaceCenter(Vector3.left),
-                    col.GetFaceCenter(Vector3.up),
-                    col.GetFaceCenter(Vector3.down),
-                    col.GetFaceCenter(Vector3.forward),
-                    col.GetFaceCenter(Vector3.back)
-                };
             }
 
             public static Vector3 GetWorldSize(this BoxCollider col)

@@ -6,37 +6,9 @@ namespace IuvoUnity
     {
         public static class ColliderExtensions
         {
-            public static bool IsTouching(this Collider collider, Collider other)
-            {
-                return collider.IsTouching(other);
-            }
-            public static bool IsTouchingLayers(this Collider collider, int layerMask)
-            {
-                return collider.IsTouchingLayers(layerMask);
-            }
             public static bool Overlaps(this Collider collider, Collider other)
             {
-                return collider.Overlaps(other);
-            }
-            public static bool Overlaps(this Collider collider, Collider other, out Collision collision)
-            {
-                return collider.Overlaps(other, out collision);
-            }
-            public static bool Overlaps(this Collider collider, Collider other, out Collider[] colliders)
-            {
-                return collider.Overlaps(other, out colliders);
-            }
-            public static bool Raycast(this Collider collider, Ray ray, out RaycastHit hitInfo, float maxDistance)
-            {
-                return collider.Raycast(ray, out hitInfo, maxDistance);
-            }
-            public static bool Raycast(this Collider collider, Ray ray, out RaycastHit hitInfo, float maxDistance, int layerMask)
-            {
-                return collider.Raycast(ray, out hitInfo, maxDistance, layerMask);
-            }
-            public static bool Raycast(this Collider collider, Ray ray, out RaycastHit hitInfo, float maxDistance, int layerMask, QueryTriggerInteraction queryTriggerInteraction)
-            {
-                return collider.Raycast(ray, out hitInfo, maxDistance, layerMask, queryTriggerInteraction);
+                return collider.bounds.Intersects(other.bounds);
             }
 
             public static void SetTrigger(this Collider collider, bool isTrigger)
@@ -60,52 +32,41 @@ namespace IuvoUnity
 
             public static bool BoundsIntersects(this Collider collider, Bounds bounds)
             {
-                return collider.bounds.Intersects(bounds);
+                return collider.BoundsContainsPoint(bounds.center);
             }
 
             public static bool BoundsIntersects(this Collider collider, Collider other)
             {
-                return collider.bounds.Intersects(other.bounds);
+                return collider.Overlaps(other);
             }
 
-            public static bool RaycastFromCollider(this Collider collider, Vector3 direction, out RaycastHit hit, float maxDistance = Mathf.Infinity)
-            {
-                return Physics.Raycast(collider.transform.position, direction, out hit, maxDistance);
-            }
-
-            public static bool RaycastFromCollider(this Collider collider, Vector3 direction, out RaycastHit hit, float maxDistance, int layerMask)
-            {
-                return Physics.Raycast(collider.transform.position, direction, out hit, maxDistance, layerMask);
-            }
-
-            public static bool RaycastFromCollider(this Collider collider, Vector3 direction, out RaycastHit hit, float maxDistance, int layerMask, QueryTriggerInteraction queryTriggerInteraction)
-            {
-                return Physics.Raycast(collider.transform.position, direction, out hit, maxDistance, layerMask, queryTriggerInteraction);
-            }
-
-
-            public static bool IsTouchingAnyCollider(this Collider collider)
+            public static bool IsTouchingAnyCollider(this Collider collider, out Collider[] colls)
             {
                 Collider[] colliders = Physics.OverlapBox(collider.bounds.center, collider.bounds.extents);
+                colls = colliders;
                 return colliders.Length > 0;
             }
 
-            public static bool IsTouchingAnyCollider(this Collider collider, int layerMask)
+            public static bool IsTouchingAnyCollider(this Collider collider, int layerMask, out Collider[] colls)
             {
                 Collider[] colliders = Physics.OverlapBox(collider.bounds.center, collider.bounds.extents, Quaternion.identity, layerMask);
+                colls = colliders;
                 return colliders.Length > 0;
             }
 
-            public static bool IsTouchingColliderWithTag(this Collider collider, string tag)
+            public static bool IsTouchingColliderWithTag(this Collider collider, string tag, out Collider[] colls)
             {
                 Collider[] colliders = Physics.OverlapBox(collider.bounds.center, collider.bounds.extents);
-                foreach (Collider c in colliders)
+                Collider[] foundColls = System.Array.FindAll(colliders, c => c.CompareTag(tag));
+                if (foundColls.Length > 0)
                 {
-                    if (c.CompareTag(tag))
-                        return true;
+                    colls = foundColls;
+                    return true;
                 }
+                colls = null;
                 return false;
             }
+
 
             public static bool IsInLayer(this Collider collider, LayerMask layerMask)
             {

@@ -110,7 +110,7 @@ namespace IuvoUnity
             /// </summary>
             /// <param name="animator">The Animator component to query.</param>
             /// <returns>The total time of all animations in the animator.</returns>
-            public static float GetTotalAnimationTime(this Animator animator)
+            public static float GetCurrentAnimationTime(this Animator animator)
             {
                 float totalTime = 0f;
                 foreach (var state in animator.GetCurrentAnimatorClipInfo(0))
