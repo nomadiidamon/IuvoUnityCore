@@ -10,8 +10,6 @@ namespace IuvoUnity
         /// </summary>
         public static class MaterialExtensions
         {
-            // ===== Common Shader Properties =====
-
             /// <summary>
             /// Sets the main color of the material, if the "_Color" property exists.
             /// </summary>
@@ -92,8 +90,6 @@ namespace IuvoUnity
                     material.SetColor("_EmissionColor", color);
             }
 
-            // ===== Shader Handling =====
-
             /// <summary>
             /// Sets the shader of the material.
             /// </summary>
@@ -154,8 +150,6 @@ namespace IuvoUnity
                 }
             }
 
-            // ===== Transparency Mode (use with caution) =====
-
             /// <summary>
             /// Sets the rendering mode of the material using the "_Mode" property.
             /// </summary>
@@ -172,8 +166,6 @@ namespace IuvoUnity
                     IuvoDebug.DebugLogWarning($"Material '{material.name}' does not support '_Mode'. Use a compatible shader for transparency.");
                 }
             }
-
-            // ===== Advanced =====
 
             /// <summary>
             /// Sets a compute buffer on the material.

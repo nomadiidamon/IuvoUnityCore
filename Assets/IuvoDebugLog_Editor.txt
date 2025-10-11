@@ -1,0 +1,2 @@
+2025-10-11 18:07:21 [DEBUG] TimerTestUI: Timer started with mode INCREMENT [Start in TimerTestUI.cs:38]
+2025-10-11 18:09:05 [DEBUG] TimerTestUI: Timer started with mode INCREMENT [Start in TimerTestUI.cs:38]

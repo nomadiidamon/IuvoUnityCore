@@ -12,7 +12,7 @@ namespace IuvoUnity
         /// </summary>
         public static class RigidbodyExtensions
         {
-            #region Velocity Setters
+            #region Velocity
 
             /// <summary>
             /// Sets the X component of the Rigidbody's velocity.

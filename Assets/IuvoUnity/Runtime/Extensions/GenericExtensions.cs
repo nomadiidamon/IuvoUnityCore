@@ -50,18 +50,6 @@ namespace IuvoUnity
                 return collection == null ? " " : string.Join(separator, collection);
             }
 
-            /// <summary>
-            /// Joins a collection of generic objects into a single string, separated by the specified separator.
-            /// Returns a single space if the collection is null.
-            /// </summary>
-            /// <typeparam name="T">The type of items in the collection.</typeparam>
-            /// <param name="collection">The collection to join.</param>
-            /// <param name="separator">The separator to use.</param>
-            /// <returns>A separated string or a space if the collection is null.</returns>
-            public static string ToSeparatedString<T>(this IEnumerable<T> collection, string separator = ", ")
-            {
-                return collection == null ? " " : string.Join(separator, collection);
-            }
         }
     }
 }

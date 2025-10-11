@@ -21,7 +21,6 @@ namespace IuvoUnity
                 Warning,
                 Error
             }
-
             // Levels enabled by default
             public static HashSet<ValidationLevel> EnabledLevels = new HashSet<ValidationLevel>
             {
@@ -29,21 +28,11 @@ namespace IuvoUnity
                 ValidationLevel.Warning,
                 ValidationLevel.Error
             };
-
-            public static void EnableLevel(ValidationLevel level, bool enable)
+            public static void EnableValidationLevel(ValidationLevel level, bool enable)
             {
                 if (enable) EnabledLevels.Add(level);
                 else EnabledLevels.Remove(level);
             }
-
-            private static string defaultLogFilePath = Path.Combine(Application.persistentDataPath, "IuvoDebugLog.txt");
-            private static string logFilePath = defaultLogFilePath;
-
-            // Thread-safe log queue
-            private static readonly Queue<string> logQueue = new Queue<string>();
-            private static readonly object fileLock = new object();
-            private static bool coroutineStarted = false;
-
             public static void Initialize()
             {
                 if (!coroutineStarted)
@@ -52,20 +41,48 @@ namespace IuvoUnity
                     var runnerObj = new GameObject("IuvoDebugRunner");
                     UnityEngine.Object.DontDestroyOnLoad(runnerObj);
                     var runner = runnerObj.AddComponent<IuvoDebugRunner>();
-                    runner.StartCoroutine(FlushLogQueueRoutine());
+                    runner.StartCoroutine(FlushPersistentLogQueueRoutine());
+                    runner.StartCoroutine(FlushEditorLogQueueRoutine());
+                    runner.StartCoroutine(FlushCustomLogQueueRoutine());
 
                     // Ensure final flush on quit
-                    Application.quitting += FinalFlushOnQuit;
+                    Application.quitting += FinalFlushOnQuitPersistentLog;
+                    Application.quitting += FinalFlushOnQuitEditorLog;
+                    Application.quitting += FinalFlushOnQuitCustomLog;
 
                     coroutineStarted = true;
                 }
             }
 
+            #region File Logging
+            public enum LogDestination
+            {
+                PersistentFile,
+                EditorFile,
+                CustomFile
+            }
+            public static HashSet<LogDestination> EnabledDestinations = new HashSet<LogDestination>
+            {
+                LogDestination.PersistentFile,
+                LogDestination.EditorFile,
+                LogDestination.CustomFile
+            };
+            private static string persistentLogFilePath = Path.Combine(Application.persistentDataPath, "IuvoDebugLog_Persistent.txt");
+            private static string editorLogFilePath = Path.Combine(Application.dataPath, "IuvoDebugLog_Editor.txt");
+            private static string customLogFilePath = "";
+
+            // Thread-safe log queue
+            private static readonly Queue<string> persistentLogQueue = new Queue<string>();
+            private static readonly Queue<string> editorLogQueue = new Queue<string>();
+            private static readonly Queue<string> customLogQueue = new Queue<string>();
+            private static readonly object fileLock = new object();
+            private static bool coroutineStarted = false;
+
             public static void SetLogFilePath(string path)
             {
                 lock (fileLock)
                 {
-                    logFilePath = string.IsNullOrEmpty(path) ? defaultLogFilePath : path;
+                    customLogFilePath = string.IsNullOrEmpty(path) ? persistentLogFilePath : path;
                 }
             }
 
@@ -73,23 +90,36 @@ namespace IuvoUnity
             {
                 lock (fileLock)
                 {
-                    logQueue.Enqueue(message);
+                    if (EnabledDestinations.Contains(LogDestination.CustomFile) && !string.IsNullOrEmpty(customLogFilePath))
+                    {
+                        customLogQueue.Enqueue(message);
+                    }
+
+                    if (EnabledDestinations.Contains(LogDestination.PersistentFile))
+                    {
+                        persistentLogQueue.Enqueue(message);
+                    }
+
+                    if (EnabledDestinations.Contains(LogDestination.EditorFile))
+                    {
+                        editorLogQueue.Enqueue(message);
+                    }
                 }
             }
 
-            private static System.Collections.IEnumerator FlushLogQueueRoutine()
+            private static System.Collections.IEnumerator FlushPersistentLogQueueRoutine()
             {
                 while (true)
                 {
                     lock (fileLock)
                     {
-                        if (logQueue.Count > 0)
+                        if (persistentLogQueue.Count > 0)
                         {
                             try
                             {
-                                Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
-                                File.AppendAllLines(logFilePath, logQueue);
-                                logQueue.Clear(); // only clear on success
+                                Directory.CreateDirectory(Path.GetDirectoryName(persistentLogFilePath));
+                                File.AppendAllLines(persistentLogFilePath, persistentLogQueue);
+                                persistentLogQueue.Clear(); // only clear on success
                             }
                             catch (Exception ex)
                             {
@@ -101,17 +131,66 @@ namespace IuvoUnity
                 }
             }
 
-            private static void FinalFlushOnQuit()
+            private static System.Collections.IEnumerator FlushEditorLogQueueRoutine()
+            {
+                while (true)
+                {
+                    lock (fileLock)
+                    {
+                        if (editorLogQueue.Count > 0)
+                        {
+                            try
+                            {
+                                Directory.CreateDirectory(Path.GetDirectoryName(editorLogFilePath));
+                                File.AppendAllLines(editorLogFilePath, editorLogQueue);
+                                editorLogQueue.Clear(); // only clear on success
+                            }
+                            catch (Exception ex)
+                            {
+                                UnityEngine.Debug.LogError($"[IuvoDebug] Failed to write log to file: {ex}");
+                            }
+                        }
+                    }
+                    yield return new WaitForSecondsRealtime(1f); // batch write every 1 sec
+                }
+            }
+
+            private static System.Collections.IEnumerator FlushCustomLogQueueRoutine()
+            {
+                while (true)
+                {
+                    lock (fileLock)
+                    {
+                        if (editorLogQueue.Count > 0)
+                        {
+                            try
+                            {
+                                Directory.CreateDirectory(Path.GetDirectoryName(customLogFilePath));
+                                File.AppendAllLines(customLogFilePath, customLogQueue);
+                                customLogQueue.Clear(); // only clear on success
+                            }
+                            catch (Exception ex)
+                            {
+                                UnityEngine.Debug.LogError($"[IuvoDebug] Failed to write log to file: {ex}");
+                            }
+                        }
+                    }
+                    yield return new WaitForSecondsRealtime(1f); // batch write every 1 sec
+                }
+            }
+
+
+            private static void FinalFlushOnQuitPersistentLog()
             {
                 lock (fileLock)
                 {
-                    if (logQueue.Count > 0)
+                    if (persistentLogQueue.Count > 0)
                     {
                         try
                         {
-                            Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
-                            File.AppendAllLines(logFilePath, logQueue);
-                            logQueue.Clear();
+                            Directory.CreateDirectory(Path.GetDirectoryName(persistentLogFilePath));
+                            File.AppendAllLines(persistentLogFilePath, persistentLogQueue);
+                            persistentLogQueue.Clear();
                         }
                         catch (Exception ex)
                         {
@@ -121,7 +200,49 @@ namespace IuvoUnity
                 }
             }
 
-            private static string FormatMessage(string level, string message, string memberName, string filePath, int lineNumber, bool richTxtMsg = false)
+            private static void FinalFlushOnQuitEditorLog()
+            {
+                lock (fileLock)
+                {
+                    if (editorLogQueue.Count > 0)
+                    {
+                        try
+                        {
+                            Directory.CreateDirectory(Path.GetDirectoryName(editorLogFilePath));
+                            File.AppendAllLines(editorLogFilePath, editorLogQueue);
+                            editorLogQueue.Clear();
+                        }
+                        catch (Exception ex)
+                        {
+                            UnityEngine.Debug.LogError($"[IuvoDebug] Final flush failed: {ex}");
+                        }
+                    }
+                }
+            }
+
+            private static void FinalFlushOnQuitCustomLog()
+            {
+                lock (fileLock)
+                {
+                    if (editorLogQueue.Count > 0)
+                    {
+                        try
+                        {
+                            Directory.CreateDirectory(Path.GetDirectoryName(customLogFilePath));
+                            File.AppendAllLines(customLogFilePath, customLogQueue);
+                            customLogQueue.Clear();
+                        }
+                        catch (Exception ex)
+                        {
+                            UnityEngine.Debug.LogError($"[IuvoDebug] Final flush failed: {ex}");
+                        }
+                    }
+                }
+            }
+
+#endregion
+
+            private static string FormatMessage(string level, string message, string memberName, string filePath, int lineNumber, out string richTextMessage, bool richTxtMsg)
             {
                 string fileName = Path.GetFileName(filePath);
 
@@ -130,22 +251,29 @@ namespace IuvoUnity
                                "green";
 
                 string richLevel = $"<color={color}>{level}</color>";
-                
+
 
 
                 string richMessage = $"<color={color}>{message}</color>";
                 if (level == "[WARNING]") richMessage = $"<color={color}><i>{message}</i></color>";
                 else if (level == "[ERROR]") richMessage = $"<color={color}><b>{message}</b></color>";
 
+                string location = $"[{memberName} in {fileName}:{lineNumber}]";
                 string richLocation = $"[{memberName} in {fileName}:{lineNumber}]";
                 if (level == "[ERROR]") richLocation = $"<b>[{memberName} in {fileName}:{lineNumber}]</b>";
 
+                string val = $"{level} {message} {location}";
+                richTextMessage = val;
                 if (!richTxtMsg)
                 {
                     richMessage = message;
                     richLocation = $"[{memberName} in {fileName}:{lineNumber}]";
+                    richTextMessage = $"{level} {richMessage} {richLocation}";
                 }
-                return $"{richLevel} {richMessage} {richLocation}";
+
+                string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                val = $"{dateTime} {val}";
+                return val;
             }
 
             #region Specific Debuggers
@@ -227,7 +355,7 @@ namespace IuvoUnity
                     return;
                 }
                 DebugLog($"Game: {game.gameName}", false, memberName, filePath, lineNumber);
-                DebugLog($"Game Version: {game.gameVersion}", false,memberName, filePath, lineNumber);
+                DebugLog($"Game Version: {game.gameVersion}", false, memberName, filePath, lineNumber);
                 DebugLog($"Developer: {game.developerName}", false, memberName, filePath, lineNumber);
                 DebugLog($"Publisher: {game.publisherName}", false, memberName, filePath, lineNumber);
                 DebugLog($"Screen Resolution: {game.screenWidth}x{game.screenHeight}", false, memberName, filePath, lineNumber);
@@ -265,21 +393,23 @@ namespace IuvoUnity
 
             #endregion
 
-            public static void DebugLog(string message, bool richTxtMsg = false, [CallerMemberName] string memberName = "",
+            public static void DebugLog(string message, bool richTxtMsg = true, [CallerMemberName] string memberName = "",
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
                 if (!EnabledLevels.Contains(ValidationLevel.Debug)) return;
-                string formatted = FormatMessage("[DEBUG]", message, memberName, filePath, lineNumber, richTxtMsg);
-                UnityEngine.Debug.Log(formatted);
+                string richFormatted;
+                string formatted = FormatMessage("[DEBUG]", message, memberName, filePath, lineNumber, out richFormatted, richTxtMsg);
+                UnityEngine.Debug.Log(richFormatted);
                 EnqueueLog(formatted);
             }
 
-            public static void DebugLogWarning(string message, bool richTxtMsg = false, [CallerMemberName] string memberName = "",
+            public static void DebugLogWarning(string message, bool richTxtMsg = true, [CallerMemberName] string memberName = "",
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
                 if (!EnabledLevels.Contains(ValidationLevel.Warning)) return;
-                string formatted = FormatMessage("[WARNING]", message, memberName, filePath, lineNumber, richTxtMsg);
-                UnityEngine.Debug.LogWarning(formatted);
+                string richFormatted;
+                string formatted = FormatMessage("[WARNING]", message, memberName, filePath, lineNumber, out richFormatted, richTxtMsg);
+                UnityEngine.Debug.LogWarning(richFormatted);
                 EnqueueLog(formatted);
             }
 
@@ -287,8 +417,9 @@ namespace IuvoUnity
                 [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
             {
                 if (!EnabledLevels.Contains(ValidationLevel.Error)) return;
-                string formatted = FormatMessage("[ERROR]", message, memberName, filePath, lineNumber, richTxtMsg);
-                UnityEngine.Debug.LogError(formatted);
+                string richFormatted;
+                string formatted = FormatMessage("[ERROR]", message, memberName, filePath, lineNumber, out richFormatted, richTxtMsg);
+                UnityEngine.Debug.LogError(richFormatted);
                 EnqueueLog(formatted);
             }
 
