@@ -53,7 +53,7 @@ namespace IuvoUnity
 
                 public class StackableComponent : RPGComponentBase
                 {
-                    public ClampedValue<int> _stack;
+                    public ClampedData<int> _stack;
                 }
 
                 public class DensityValueComponent : RPGComponentBase

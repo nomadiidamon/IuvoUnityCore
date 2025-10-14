@@ -17,7 +17,7 @@ namespace IuvoUnity
         public interface IPriority : IuvoInterfaceBase
         {
             public PriorityLevel PriorityLevel { get; set; }
-            public ClampedValue<float> priorityScale { get; set; }
+            public ClampedData<float> priorityScale { get; set; }
         }
     }
 }

@@ -108,7 +108,7 @@ namespace IuvoUnity
             // governs the level of priority this object has in the update queue
             public PriorityLevel PriorityLevel { get; set; } = PriorityLevel.None;
             // fallback for when two SemiBehaviors have the same PriorityLevel
-            public ClampedValue<float> priorityScale { get; set; } = new ClampedFloat(new RangeF(0, 1), 0.5f);
+            public ClampedData<float> priorityScale { get; set; } = new ClampedFloat(new RangeF(0, 1), 0.5f);
 
             #endregion
 
