@@ -16,11 +16,11 @@ namespace IuvoUnity
 
             public virtual void Configure(T configurable)
             {
-
+                configurable.OnConfigure();
             }
             public virtual void Reconfigure(T reconfigurable)
             {
-
+                reconfigurable.OnReconfigure();
             }
             #endregion
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using IuvoUnity.BaseClasses.Items;
 
 
 namespace IuvoUnity
@@ -31,7 +32,7 @@ namespace IuvoUnity
 
             // public List<Character> Enemies; // List of Characters in the level
 
-            // public List<Item> Items; // List of items in the level
+            public List<Item> Items; // List of items in the level
 
             // public List<Quest> Quests; // List of quests in the level
             public int TotalLives; // Total number of lives available in the level
