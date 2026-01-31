@@ -1,0 +1,4 @@
+var class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_polearms_1_1_polearm_counter_weight_part =
+[
+    [ "PolearmCounterWeightPart", "class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_polearms_1_1_polearm_counter_weight_part.html#a1805549eaa9e65144313069811e04e9f", null ]
+];

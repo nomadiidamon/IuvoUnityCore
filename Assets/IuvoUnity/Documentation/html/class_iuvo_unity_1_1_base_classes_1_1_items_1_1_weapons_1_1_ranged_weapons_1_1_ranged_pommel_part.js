@@ -1,0 +1,4 @@
+var class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_ranged_weapons_1_1_ranged_pommel_part =
+[
+    [ "RangedPommelPart", "class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_ranged_weapons_1_1_ranged_pommel_part.html#a1e508cb58a563d36783ebf9d4a1fe967", null ]
+];

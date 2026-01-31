@@ -1,0 +1,26 @@
+var class_iuvo_unity_1_1_data_structs_1_1_context =
+[
+    [ "Context", "class_iuvo_unity_1_1_data_structs_1_1_context.html#a8bab0d0fa7fa7db0cb326af762d38a8c", null ],
+    [ "Context", "class_iuvo_unity_1_1_data_structs_1_1_context.html#a0110f15d7a2763f2f3e3841657ff38ba", null ],
+    [ "Context", "class_iuvo_unity_1_1_data_structs_1_1_context.html#a716c14cd36a2af58152adc53fc358f1d", null ],
+    [ "ClearData", "class_iuvo_unity_1_1_data_structs_1_1_context.html#ad0f2c1812f6cbdb42bee5a88f826340f", null ],
+    [ "ClearEvents", "class_iuvo_unity_1_1_data_structs_1_1_context.html#a2ed46a0a813f7f809df936919ec39ef0", null ],
+    [ "CloneContext", "class_iuvo_unity_1_1_data_structs_1_1_context.html#a22700ac34c4b2b4ab4f53c7c8ee79bd5", null ],
+    [ "Dispose", "class_iuvo_unity_1_1_data_structs_1_1_context.html#a0ee3e330101c76d4aa28cb2f95c4798f", null ],
+    [ "Get< T >", "class_iuvo_unity_1_1_data_structs_1_1_context.html#aa1658302293e3d85860c7f93b56face4", null ],
+    [ "Has", "class_iuvo_unity_1_1_data_structs_1_1_context.html#afd9494ba321aeeec1d366eab595bd916", null ],
+    [ "HasEvent", "class_iuvo_unity_1_1_data_structs_1_1_context.html#a7c923782d5ac24baec42d3695566b8b3", null ],
+    [ "InvokeEvent", "class_iuvo_unity_1_1_data_structs_1_1_context.html#a6458caa1880cc20d686cef7c291490bd", null ],
+    [ "InvokeEvent< T >", "class_iuvo_unity_1_1_data_structs_1_1_context.html#a1de3c96990056598af66dff7464b1bed", null ],
+    [ "MergeContexts", "class_iuvo_unity_1_1_data_structs_1_1_context.html#acfec11a633b96b3ae26e84daab62f3d4", null ],
+    [ "RegisterEvent", "class_iuvo_unity_1_1_data_structs_1_1_context.html#a0ba5e58984bfc58134b327ad632d8937", null ],
+    [ "RegisterEvent< T >", "class_iuvo_unity_1_1_data_structs_1_1_context.html#ad1937c9ef98e07c8c2f1d47ec56495d7", null ],
+    [ "Remove", "class_iuvo_unity_1_1_data_structs_1_1_context.html#af21ebb628ae155540088c2444865241c", null ],
+    [ "RemoveEvent", "class_iuvo_unity_1_1_data_structs_1_1_context.html#af993bc05338c5b0564aebe042a1c2449", null ],
+    [ "Set< T >", "class_iuvo_unity_1_1_data_structs_1_1_context.html#a131876bb94648bdfb3c6478242ee335d", null ],
+    [ "TryGet< T >", "class_iuvo_unity_1_1_data_structs_1_1_context.html#abc4e773a4321ee7c158ab3fd03ffc49b", null ],
+    [ "TryGetEvent", "class_iuvo_unity_1_1_data_structs_1_1_context.html#ae73e81b712491c65544e31d292eaac81", null ],
+    [ "TryGetEvent< T >", "class_iuvo_unity_1_1_data_structs_1_1_context.html#a8205005d2226da80126c4590dd0f4df6", null ],
+    [ "_data", "class_iuvo_unity_1_1_data_structs_1_1_context.html#aba12cb90b4f37df3275fd61145b6a226", null ],
+    [ "_eventMap", "class_iuvo_unity_1_1_data_structs_1_1_context.html#a8ebe614fbfba9b97ce4f84f97a1614f4", null ]
+];

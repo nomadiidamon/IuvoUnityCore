@@ -1,0 +1,4 @@
+var class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_polearms_1_1_polearm_pommel_part =
+[
+    [ "PolearmPommelPart", "class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_polearms_1_1_polearm_pommel_part.html#a1e6db048a2888b15444a4bead71ffb6a", null ]
+];

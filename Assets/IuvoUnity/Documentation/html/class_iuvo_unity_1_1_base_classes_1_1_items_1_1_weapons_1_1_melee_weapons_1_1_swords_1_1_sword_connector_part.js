@@ -1,0 +1,4 @@
+var class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_swords_1_1_sword_connector_part =
+[
+    [ "SwordConnectorPart", "class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_swords_1_1_sword_connector_part.html#a5e8f5b1a36b02a9fd3a8292277e2e7cb", null ]
+];

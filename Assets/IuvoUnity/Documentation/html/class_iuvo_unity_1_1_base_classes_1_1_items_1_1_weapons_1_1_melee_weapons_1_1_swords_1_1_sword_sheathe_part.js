@@ -1,0 +1,4 @@
+var class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_swords_1_1_sword_sheathe_part =
+[
+    [ "SwordSheathePart", "class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_swords_1_1_sword_sheathe_part.html#a63850e664422abe71f0e13efc945cd9a", null ]
+];

@@ -1,0 +1,4 @@
+var class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_axes_1_1_axe_head_part =
+[
+    [ "AxeHeadPart", "class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_axes_1_1_axe_head_part.html#ab476f4689c75983c21c808c16fae7338", null ]
+];

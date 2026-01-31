@@ -1,0 +1,26 @@
+var class_iuvo_unity_1_1_extensions_1_1_camera_extensions =
+[
+    [ "FadeIn", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#aec78b1abc408a1b653d0c32e1f0c09b2", null ],
+    [ "FadeInCoroutine", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#a8ecf8efbd2d863985c5982e2e0462536", null ],
+    [ "FadeOut", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#a6cf328f059ac116832a837962b496596", null ],
+    [ "FadeOutCoroutine", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#ab724b438af3e699795fda126441d93ba", null ],
+    [ "Follow", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#a550e37b7c4a723c95cff8c00207f42f9", null ],
+    [ "GetCenterRay", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#a5756dc3d65f0d899dace833c58ab31b0", null ],
+    [ "Initialize", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#aabbe4fe50e053702f93f8de5c4f951bf", null ],
+    [ "LockRotationAxis", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#a9ef5695e2383d7b4de78aa6fcc2a3647", null ],
+    [ "LookAt", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#ad793cbbe207af7a8152d740e67c70e16", null ],
+    [ "LookAt", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#a4cc0df3d76b017ccd5aefaa1d4b0584c", null ],
+    [ "LookAt", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#a8ccebeae7050329a8bf2af749c5d3559", null ],
+    [ "MoveToPosition", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#ada647d203e978141c416e3c2f484c8e0", null ],
+    [ "RaycastFromCenter", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#aafa5c30725a8e503f08c1acbd3f7bf09", null ],
+    [ "RotateToRotation", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#aeb2f8df7819ecc82fc160baa2a718fd8", null ],
+    [ "SetBackgroundColor", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#ad164c40cd2046eafe8e54f4178fccd99", null ],
+    [ "SetPosition", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#aad924dfd599f37b2e7ab1705d025bdaf", null ],
+    [ "SetRenderTarget", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#aa35116e1c7a9159d8d57239a892730e7", null ],
+    [ "SetRotation", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#ad9379f4a49e647e5356ba99a66b37e17", null ],
+    [ "ShakeScreen", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#af72be78bd575ff21d459360c14b5fcb6", null ],
+    [ "ShakeScreenCoroutine", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#a55887d42d19e9d4da7eb5363011a800e", null ],
+    [ "ZoomIn", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#aef770a0aa00ea90bace40374aa6af530", null ],
+    [ "ZoomOut", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#a123f2836fe03d8273c2205e72d6242dc", null ],
+    [ "coroutineRunner", "class_iuvo_unity_1_1_extensions_1_1_camera_extensions.html#a5158e9b508c514c800d4115c70d50624", null ]
+];

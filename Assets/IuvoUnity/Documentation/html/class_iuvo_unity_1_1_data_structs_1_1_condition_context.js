@@ -1,0 +1,25 @@
+var class_iuvo_unity_1_1_data_structs_1_1_condition_context =
+[
+    [ "ConditionContext", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#a4b70062dd92bba8d315b666552ac5b01", null ],
+    [ "Dispose", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#adea6a4770ed6d2b698a6a98581172cbc", null ],
+    [ "GetAllConditions", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#a1bb7cb5e83e6005b9caff946ceef977b", null ],
+    [ "GetCondition", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#aad50462c13d35b906c21cef9c6052511", null ],
+    [ "GetIsAiming", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#a3b5521a9dff69169e0c8773f91d556ce", null ],
+    [ "GetIsDead", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#a73bb47ed663d3e5732f9c739e3b76432", null ],
+    [ "GetIsGrounded", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#ac79765fcc255088e87b94e5079582fee", null ],
+    [ "GetIsMoving", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#a177657942fe7dd6486fe68d61aab9171", null ],
+    [ "GetIsPaused", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#aa5c9d8b5010991c3a2767779fe1f165d", null ],
+    [ "GetIsSprinting", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#aac07d233c5f8a225892aebd1eddc2b8c", null ],
+    [ "GetIsUnderAttack", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#a10962e7ca6e0c1b1adff3d38b39fddfc", null ],
+    [ "GetIsVisible", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#a55251416df0577c291f885709c286994", null ],
+    [ "SetCondition", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#a7581b989272f7661459aef5a5c8b0c5c", null ],
+    [ "SetIsAiming", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#a4214f3053776c3971917590dc20a0969", null ],
+    [ "SetIsDead", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#aa2513ab8397ee0b1abd8af0daaf11b37", null ],
+    [ "SetIsGrounded", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#afb72f31c28458762be08a9e13fc14e1e", null ],
+    [ "SetIsMoving", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#af16d15c2d7261753ae12d2cd7758f550", null ],
+    [ "SetIsPaused", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#a49bf300da25664c25b2c44b7f94caddd", null ],
+    [ "SetIsSprinting", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#a57b4dbd321a385ca6fafe7c87cdfe5aa", null ],
+    [ "SetIsUnderAttack", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#a99d2e4e8e28ef858347fd2fa99130320", null ],
+    [ "SetIsVisible", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#aac116660f244c6e90a9f1059e7128708", null ],
+    [ "Conditions", "class_iuvo_unity_1_1_data_structs_1_1_condition_context.html#a688f3e4fa7adc9734358a355f565181f", null ]
+];

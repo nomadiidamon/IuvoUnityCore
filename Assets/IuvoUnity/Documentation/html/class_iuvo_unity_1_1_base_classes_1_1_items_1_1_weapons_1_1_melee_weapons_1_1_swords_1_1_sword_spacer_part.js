@@ -1,0 +1,4 @@
+var class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_swords_1_1_sword_spacer_part =
+[
+    [ "SwordSpacerPart", "class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_swords_1_1_sword_spacer_part.html#af5280bf0b15bbd20d79e0abb483450cb", null ]
+];

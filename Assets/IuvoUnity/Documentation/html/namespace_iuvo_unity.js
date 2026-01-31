@@ -1,0 +1,27 @@
+var namespace_iuvo_unity =
+[
+    [ "AI", "namespace_iuvo_unity_1_1_a_i.html", "namespace_iuvo_unity_1_1_a_i" ],
+    [ "DataStructs", "namespace_iuvo_unity_1_1_data_structs.html", "namespace_iuvo_unity_1_1_data_structs" ],
+    [ "Animations", "namespace_iuvo_unity_1_1_animations.html", "namespace_iuvo_unity_1_1_animations" ],
+    [ "Audio", "namespace_iuvo_unity_1_1_audio.html", "namespace_iuvo_unity_1_1_audio" ],
+    [ "BaseClasses", "namespace_iuvo_unity_1_1_base_classes.html", "namespace_iuvo_unity_1_1_base_classes" ],
+    [ "Colors", "namespace_iuvo_unity_1_1_colors.html", "namespace_iuvo_unity_1_1_colors" ],
+    [ "Configurations", "namespace_iuvo_unity_1_1_configurations.html", "namespace_iuvo_unity_1_1_configurations" ],
+    [ "Constants", "namespace_iuvo_unity_1_1_constants.html", "namespace_iuvo_unity_1_1_constants" ],
+    [ "Debug", "namespace_iuvo_unity_1_1_debug.html", "namespace_iuvo_unity_1_1_debug" ],
+    [ "ECS", "namespace_iuvo_unity_1_1_e_c_s.html", "namespace_iuvo_unity_1_1_e_c_s" ],
+    [ "Editor", "namespace_iuvo_unity_1_1_editor.html", "namespace_iuvo_unity_1_1_editor" ],
+    [ "Events", "namespace_iuvo_unity_1_1_events.html", "namespace_iuvo_unity_1_1_events" ],
+    [ "Extensions", "namespace_iuvo_unity_1_1_extensions.html", "namespace_iuvo_unity_1_1_extensions" ],
+    [ "Inputs", "namespace_iuvo_unity_1_1_inputs.html", "namespace_iuvo_unity_1_1_inputs" ],
+    [ "Interfaces", "namespace_iuvo_unity_1_1_interfaces.html", "namespace_iuvo_unity_1_1_interfaces" ],
+    [ "Core", "namespace_iuvo_unity_1_1_core.html", "namespace_iuvo_unity_1_1_core" ],
+    [ "IuvoPhysics", "namespace_iuvo_unity_1_1_iuvo_physics.html", "namespace_iuvo_unity_1_1_iuvo_physics" ],
+    [ "ProceduralGeneration", "namespace_iuvo_unity_1_1_procedural_generation.html", "namespace_iuvo_unity_1_1_procedural_generation" ],
+    [ "RPG", "namespace_iuvo_unity_1_1_r_p_g.html", "namespace_iuvo_unity_1_1_r_p_g" ],
+    [ "Singletons", "namespace_iuvo_unity_1_1_singletons.html", "namespace_iuvo_unity_1_1_singletons" ],
+    [ "StateMachines", "namespace_iuvo_unity_1_1_state_machines.html", "namespace_iuvo_unity_1_1_state_machines" ],
+    [ "Statemachines", "namespace_iuvo_unity_1_1_statemachines.html", "namespace_iuvo_unity_1_1_statemachines" ],
+    [ "IuvoTime", "namespace_iuvo_unity_1_1_iuvo_time.html", "namespace_iuvo_unity_1_1_iuvo_time" ],
+    [ "ProceduralStripLocationPair", "struct_iuvo_unity_1_1_procedural_strip_location_pair.html", "struct_iuvo_unity_1_1_procedural_strip_location_pair" ]
+];

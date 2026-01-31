@@ -1,0 +1,4 @@
+var class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_polearms_1_1_polearm_blade_part =
+[
+    [ "PolearmBladePart", "class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_polearms_1_1_polearm_blade_part.html#adb1710909a1178a04c63b32b83597a24", null ]
+];

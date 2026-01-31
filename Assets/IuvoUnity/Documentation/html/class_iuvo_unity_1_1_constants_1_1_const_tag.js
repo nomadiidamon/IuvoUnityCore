@@ -1,0 +1,25 @@
+var class_iuvo_unity_1_1_constants_1_1_const_tag =
+[
+    [ "ConstTag", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#acabffb040a4d6dab2218da72fbf80309", null ],
+    [ "ConstTag", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a25d2a5b4ff75f840d40a2953bd60c731", null ],
+    [ "AddAppTag", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a58d48ec25e193cc280af7b50cc95f09f", null ],
+    [ "AddGameTag", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#ad7d741d5549cebeb4ea22147baa7e1ed", null ],
+    [ "AddTagType", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#ae041e232970cec3b666960755ffca4fb", null ],
+    [ "AddUITag", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#adaa8b107c53d758fb12c50b6faea8c15", null ],
+    [ "GetAppTags", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a8956c3fd7e60369c5d12b1b439a861c5", null ],
+    [ "GetGameTags", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a839eada38f44fa71cf785e7d9fa78722", null ],
+    [ "GetTagTypes", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#aa1b845de1c95ebf06ce16b7d3e4ecfa6", null ],
+    [ "GetUITags", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a847701536a92418890cab669c7598b84", null ],
+    [ "HasAppTag", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a2f4c8ee4c5876b4a8be2670a0220e701", null ],
+    [ "HasGameTag", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a1754e06121e03d1e0f92b9bad9c67cce", null ],
+    [ "HasTagType", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#abe9c0b2fd33e1dec77a924d2b08e0fdf", null ],
+    [ "HasUITag", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a8348360352651700002025f907574e29", null ],
+    [ "RemoveAppTag", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a72a2d8fb53dcd60ebda8dda40aa311f3", null ],
+    [ "RemoveGameTag", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a4464c0ab16aaed9e4821ce4ae2ed0c63", null ],
+    [ "RemoveTagType", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a643786738ab332dc741312c89ebb8be6", null ],
+    [ "RemoveUITag", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a47d291a91d9311cdec1ccf6b2fb27af6", null ],
+    [ "appTags", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#ab93821a7374cd3db48c126790d60cf9d", null ],
+    [ "gameTags", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a58d696e3fee6c0a239bfd09fd296394f", null ],
+    [ "tagTypes", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a50efe2f7c5ac1b6f56ba047fb4c671f5", null ],
+    [ "uiTags", "class_iuvo_unity_1_1_constants_1_1_const_tag.html#a123deef95a88df1d932f73a05da52094", null ]
+];

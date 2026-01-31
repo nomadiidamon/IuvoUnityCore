@@ -1,0 +1,4 @@
+var class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_swords_1_1_sword_guard_part =
+[
+    [ "SwordGuardPart", "class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_swords_1_1_sword_guard_part.html#a5b027ab0315801451f1d61149ceecc3b", null ]
+];

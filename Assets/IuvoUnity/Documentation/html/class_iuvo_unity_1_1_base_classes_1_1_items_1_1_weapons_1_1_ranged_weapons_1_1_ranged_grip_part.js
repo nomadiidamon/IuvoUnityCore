@@ -1,0 +1,4 @@
+var class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_ranged_weapons_1_1_ranged_grip_part =
+[
+    [ "RangedGripPart", "class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_ranged_weapons_1_1_ranged_grip_part.html#ad7a938acd6c69d263ca4f6331451bf93", null ]
+];

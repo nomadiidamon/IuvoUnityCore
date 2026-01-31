@@ -1,0 +1,4 @@
+var class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_axes_1_1_axe_sheathe_part =
+[
+    [ "AxeSheathePart", "class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_axes_1_1_axe_sheathe_part.html#ab22840d9722a1391bc448b6734e26e24", null ]
+];

@@ -1,0 +1,47 @@
+var class_iuvo_unity_1_1_debug_1_1_iuvo_debug =
+[
+    [ "IuvoDebugRunner", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug_1_1_iuvo_debug_runner.html", null ],
+    [ "LogDestination", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ac314fd1e77b30debe5f8567796b097ed", [
+      [ "PersistentFile", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ac314fd1e77b30debe5f8567796b097edaa5efaa3b105750e8f4e009872c47fc95", null ],
+      [ "EditorFile", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ac314fd1e77b30debe5f8567796b097eda2a7dbecb4af81d8b5c27a47870893863", null ],
+      [ "CustomFile", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ac314fd1e77b30debe5f8567796b097eda32d88ddf0f960debd4e551790f3aa88e", null ]
+    ] ],
+    [ "ValidationLevel", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a14439a5ce858a4bde9a9772ea31adae5", [
+      [ "Debug", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a14439a5ce858a4bde9a9772ea31adae5aa603905470e2a5b8c13e96b579ef0dba", null ],
+      [ "Warning", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a14439a5ce858a4bde9a9772ea31adae5a0eaadb4fcb48a0a0ed7bc9868be9fbaa", null ],
+      [ "Error", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a14439a5ce858a4bde9a9772ea31adae5a902b0d55fddef6f8d651fe1035b7d4bd", null ]
+    ] ],
+    [ "DebugEulerAngles", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a5548c93f754d3b07852ac0f52552339b", null ],
+    [ "DebugIuvoGame", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a76dd537f084e6bb99e0a172e767fc066", null ],
+    [ "DebugLog", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#afa39aee18da66822d86298f782b33a80", null ],
+    [ "DebugLogError", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a6c95050c813ebd3ddab1d31db7840b7a", null ],
+    [ "DebugLogIuvoVersion", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a1957a7ac238a2bbcec94c09e073093ef", null ],
+    [ "DebugLogWarning", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ae6f1e2cd30d882f2527d33bd9fa66bb8", null ],
+    [ "DebugLossyScale", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ad9533e049a695fc4c0f39a8276bfd6fb", null ],
+    [ "DebugPosition", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ab7f31b32ec97fe317e24ee2b5bb87207", null ],
+    [ "DebugRotation", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a0e2529792d97f6f26bdd35986dabcb26", null ],
+    [ "DebugScale", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a465727827f76018c7fd14f7e7b381ff6", null ],
+    [ "DebugTransform", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#aacabf29e0e1d462513b9c4aedd06215c", null ],
+    [ "EnableValidationLevel", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#af894750e38a096f0ed3f2d3b9a9a090d", null ],
+    [ "EnqueueLog", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ad4c3e7497732c1a3c595db2b18d92b80", null ],
+    [ "FinalFlushOnQuitCustomLog", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ad34738cb45d417aae61a67fde80d2a32", null ],
+    [ "FinalFlushOnQuitEditorLog", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a143e647c528f074293fa8b9de54086be", null ],
+    [ "FinalFlushOnQuitPersistentLog", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a5597c545bc368adf6199ba7cb47d53d6", null ],
+    [ "FlushCustomLogQueueRoutine", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a6e81248194b4660717392c2cefe9bd59", null ],
+    [ "FlushEditorLogQueueRoutine", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a27d0fb101c00cbb4d67e9a7992b88195", null ],
+    [ "FlushPersistentLogQueueRoutine", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a814248cf7b934b8fee87f3a401759f10", null ],
+    [ "FormatMessage", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a6e1dca5164fcac5d16bd43146b209f9c", null ],
+    [ "Initialize", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#aa0505a3ff2f64d6e25cedbcc3874a6b2", null ],
+    [ "RaycastDebug", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ae0ae02c67a0b660f934f09eaa45834b7", null ],
+    [ "SetLogFilePath", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ad4d95f7c748790216f80fcb66706fc91", null ],
+    [ "coroutineStarted", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a822935226d497242edde70901de30461", null ],
+    [ "customLogFilePath", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a7e71c28e5483e7995cd9b464189aeebc", null ],
+    [ "customLogQueue", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#adb1b2a8cbb6bcec0228ce6273789acf5", null ],
+    [ "editorLogFilePath", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a6c6f5f46a476c5ac700220e70e7150fd", null ],
+    [ "editorLogQueue", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ab183b9111762f14d1adb78900b0a5428", null ],
+    [ "EnabledDestinations", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a069041639ad046be529f51938070db06", null ],
+    [ "EnabledLevels", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a683a1edf95ff42f81389ec0fe4013ab8", null ],
+    [ "fileLock", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ad7126ad77ed2b2dceed13925b9ff8125", null ],
+    [ "persistentLogFilePath", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#ada70da2577824a0c8f602c4420e7bf05", null ],
+    [ "persistentLogQueue", "class_iuvo_unity_1_1_debug_1_1_iuvo_debug.html#a9cb3c80d256ca323d2520d1b636a37f9", null ]
+];

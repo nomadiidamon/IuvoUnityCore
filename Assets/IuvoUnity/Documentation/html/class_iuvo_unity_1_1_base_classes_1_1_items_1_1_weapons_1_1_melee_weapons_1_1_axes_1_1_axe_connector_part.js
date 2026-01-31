@@ -1,0 +1,4 @@
+var class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_axes_1_1_axe_connector_part =
+[
+    [ "AxeConnectorPart", "class_iuvo_unity_1_1_base_classes_1_1_items_1_1_weapons_1_1_melee_weapons_1_1_axes_1_1_axe_connector_part.html#a4f163062163319911c0218d39f6cee14", null ]
+];
