@@ -92,11 +92,14 @@ namespace IuvoUnity
         }
 
 
-        /// TODO: need to find a way to have a flexible event for this. Loss of QOL without
+        /// @class AnimationEventData
+        /// @brief Represents an animation event with Unity and native callbacks.
+        /// @note This class encapsulates both a Unity AnimationEvent and a native C# Action delegate.
+        /// @todo Add a flexible event specifically for animation events
         public class AnimationEventData : IDataStructBase
         {
             public AnimationEvent _unityAnimEvent { get; set; }
-            public System.Action _nativeAnimEvent {  get; set; }
+            public System.Action _nativeAnimEvent { get; set; }
 
             public AnimationEventData()
             {
